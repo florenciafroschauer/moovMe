@@ -1,8 +1,11 @@
 package model;
 
 public class Tariff {
+    private Integer tripValue;
+    private AssetI asset;
+    private Zone zone;
 
-    public Integer tripValue(Integer tripValue, Asset asset, Zone zone){
+    public Integer tripValue(){
         return tripValue;
     }
 }

@@ -2,9 +2,12 @@ package model;
 import java.util.List;
 
 
-public class Admin {
+public class Admin extends User{
+    private List<ClientI> clients;
+    private List<PurchaseLot> purchaseLot;
+    private List<Terminal> terminals;
 
-    List<ClientI> clients;
-    List<PurchaseLot> purchaseLot;
-    List<Terminal> terminals;
+    public Admin(String username, String password) {
+        super(username, password);
+    }
 }
