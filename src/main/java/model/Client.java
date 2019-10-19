@@ -28,7 +28,7 @@ public class Client extends User {
     }
 
     public void addDiscounts(Discount discountToAdd){
-        //TO DO
+        discounts.add(discounts.size() + 1, discountToAdd);
     }
 
 
