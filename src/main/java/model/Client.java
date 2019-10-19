@@ -1,5 +1,7 @@
 package model;
+import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class Client extends User {
@@ -16,4 +18,18 @@ public class Client extends User {
         this.phoneNumber = phoneNumber;
         this.nickname = nickname;
     }
+
+    public Integer getScore(){
+        return score;
+    }
+
+    public List<Discount>ShowDiscounts(){
+        return discounts;
+    }
+
+    public void addDiscounts(Discount discountToAdd){
+        //TO DO
+    }
+
+
 }

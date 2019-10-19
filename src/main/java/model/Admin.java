@@ -10,4 +10,31 @@ public class Admin extends User{
     public Admin(String username, String password) {
         super(username, password);
     }
+
+
+    public Terminal getTerminal(Zone zone){
+        for(int i = 0; i<terminals.size(); i++){
+            if(terminals.get(i).showZone().equals(zone.getType()){
+                return terminals.get(i);
+            }
+        }
+    }
+
+    public List<Terminal> showTerminal(){
+        return terminals;
+    }
+
+    public PurchaseLot getPurchaseLot(PurchaseLot lookPurchaseLot){
+        for(int i = 0; i<purchaseLot.size(); i++){
+            if(purchaseLot.get(i).ALGO.equals(lookPurchaseLot.ALGO)){
+                return purchaseLot.get(i)
+            }
+        }
+    }
+
+    public List<PurchaseLot> showPL(){
+        return purchaseLot;
+    }
+
+
 }
