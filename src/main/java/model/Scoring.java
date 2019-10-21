@@ -11,21 +11,8 @@ public class Scoring {
 
     public void Leaderboard(){
 
-        Collections.sort(Clients, new SortByScore(){
-            public int compare(Client a, Client b){
-                return Integer.valueOf(b.getScore()).compareTo(a.getScore());
-            }
-        });
+        Clients.sort((Client a, Client b)-> b.getScore() -a.getScore());
     }
 }
 
-class SortByScore implements Comparator<Client> {
-
-    public int compare(Client a, Client b){
-
-        return b.getScore() - a.getScore();
-
-    }
-
-}
 
