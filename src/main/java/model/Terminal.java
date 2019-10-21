@@ -10,4 +10,8 @@ public class Terminal {
     public Terminal(){
 
     }
+    public String showzone(){return zone; }
+    public void receive(AssetI asset){}
+    public AssetI grant(){return discounts; }
+
 }
