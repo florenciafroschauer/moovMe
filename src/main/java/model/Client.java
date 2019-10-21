@@ -32,5 +32,8 @@ public class Client extends User implements ClientI{
         discounts.add(discounts.size() + 1, discountToAdd);
     }
 
-
+    @Override
+    public Integer sumScore(Integer score) {
+        return score += score;
+    }
 }

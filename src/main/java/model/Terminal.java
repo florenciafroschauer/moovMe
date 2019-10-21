@@ -1,26 +1,27 @@
 package model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Terminal {
-    private List<AssetI> assets;
+    private ArrayList<Asset> assets;
     private Discount discounts;
     private Zone zone;
 
-    public Terminal(){
+    public Terminal() {
 
     }
     public Zone showZone() {
         return zone;
     }
 
-    public void receive(AssetI asset) {
+    public void receive(Asset asset) {
         assets.add(asset);
     }
 
-    public AssetI grant() {
+    public Asset grant(String assetType) {
+        for (Asset asset: assets) {
+            if (asset.getType().equals(assetType)) return asset;
 
-        return asset;
+        } return null;
     }
-
 }
