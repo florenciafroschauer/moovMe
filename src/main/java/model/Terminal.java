@@ -7,4 +7,7 @@ public class Terminal {
     private Discount discounts;
     private Zone zone;
 
+    public Terminal(){
+
+    }
 }
