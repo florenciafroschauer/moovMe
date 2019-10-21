@@ -4,7 +4,7 @@ import java.util.List;
 
 
 
-public class Client extends User {
+public class Client extends User implements ClientI{
     private String phoneNumber;
     private String nickname;
     private Boolean state;
@@ -23,7 +23,8 @@ public class Client extends User {
         return score;
     }
 
-    public List<Discount>ShowDiscounts(){
+    @Override
+    public List<Discount> showDiscounts() {
         return discounts;
     }
 

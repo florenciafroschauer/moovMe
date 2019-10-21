@@ -2,7 +2,7 @@ package model;
 import java.util.List;
 
 
-public class Admin extends User{
+public class Admin extends User implements AdminI{
     private List<ClientI> clients;
     private List<PurchaseLot> purchaseLot;
     private List<Terminal> terminals;
@@ -12,9 +12,10 @@ public class Admin extends User{
     }
 
 
-    public Terminal getTerminal(Zone zone){
+    @Override
+    public Terminal getTerminal(Zone zone) {
         for(int i = 0; i<terminals.size(); i++){
-            if(terminals.get(i).showZone().equals(zone.getType()){
+            if(terminals.get(i).showZone().equals(zone.getType())){
                 return terminals.get(i);
             }
         }
@@ -24,12 +25,14 @@ public class Admin extends User{
         return terminals;
     }
 
-    public PurchaseLot getPurchaseLot(PurchaseLot lookPurchaseLot){
+    @Override
+    public PurchaseLot getPurchaseLot(PurchaseLot lookPurchaseLot) {
         for(int i = 0; i<purchaseLot.size(); i++){
             if(purchaseLot.get(i).getKey().equals(lookPurchaseLot.getKey())){
-                return purchaseLot.get(i)
+                return purchaseLot.get(i);
             }
         }
+        return null;
     }
 
     public List<PurchaseLot> showPL(){
