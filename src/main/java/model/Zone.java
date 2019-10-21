@@ -16,4 +16,5 @@ public class Zone {
     public Integer getRate() {
         return rate;
     }
+
 }

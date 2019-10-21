@@ -3,8 +3,8 @@ package model;
 import java.util.List;
 
 public interface AdminI {
-    Terminal getTerminal();
+    Terminal getTerminal(Zone zone);
     List<Terminal>showTerminal();
-    PurchaseLot getPurchaseLot();
+    PurchaseLot getPurchaseLot(PurchaseLot lookPurchaseLot);
     List<PurchaseLot>showPL();
 }
