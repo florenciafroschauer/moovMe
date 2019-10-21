@@ -7,4 +7,13 @@ public class Tariff {
     public Integer tripValue(){
         return tripValue;
     }
+
+
+    public Integer getTripValue() {
+        return tripValue;
+    }
+
+    public void setTripValue(Integer tripValue) {
+        this.tripValue = tripValue;
+    }
 }

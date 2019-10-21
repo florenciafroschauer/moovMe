@@ -3,21 +3,19 @@ package model;
 import util.KeyGenerator;
 
 public class Asset implements AssetI {
+
     private final KeyGenerator key;
     private Tariff tariff;
     private Integer score;
     private final Zone zone;
     private final String assetType;
     private Discount discount;
-    private final PurchaseLot purchaseLot;
-    private Terminal terminal;
+    private PurchaseLot purchaseLot;
 
-
-    public Asset(KeyGenerator key, Zone zone, String assetType, PurchaseLot purchaseLot) {
+    public Asset(KeyGenerator key, Zone zone, String assetType) {
         this.key = key;
         this.zone = zone;
         this.assetType = assetType;
-        this.purchaseLot = purchaseLot;
     }
 
     @Override
@@ -25,8 +23,10 @@ public class Asset implements AssetI {
         return key;
     }
 
+    // pedir el descuento que se quiere usar al cliente y restarle el porcentaje a la tariff
     @Override
     public Tariff getTariff() {
+
         return tariff;
     }
 
@@ -34,12 +34,6 @@ public class Asset implements AssetI {
     public void setScore(Integer score) {
         this.score = score;
     }
-
-    @Override
-    public Integer getScore() {
-        return score;
-    }
-
 
     @Override
     public Zone getZone() {
@@ -61,8 +55,8 @@ public class Asset implements AssetI {
         return purchaseLot;
     }
 
-    @Override
-    public Terminal getTerminal() {
-        return terminal;
+    public void givePoints(Trip trip) {
+        Integer score = trip.getTripTime();
+        trip.getClient().sumScore(score);
     }
 }

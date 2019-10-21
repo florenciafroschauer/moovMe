@@ -9,9 +9,8 @@ public class Scoring {
     private List<AssetI> asset;
     private ArrayList leaderboard;
 
-    public void Leaderboard(){
-
-        Clients.sort((Client a, Client b)-> b.getScore() -a.getScore());
+    public void leaderBoard(List<Client> clients) {
+        clients.sort((Client a, Client b)-> b.getScore() -a.getScore());
     }
 }
 

@@ -14,14 +14,16 @@ public class Admin extends User implements AdminI{
 
     @Override
     public Terminal getTerminal(Zone zone) {
-        for(int i = 0; i<terminals.size(); i++){
-            if(terminals.get(i).showZone().equals(zone.getType())){
+        for(int i = 0; i<terminals.size(); i++) {
+            if(terminals.get(i).showZone().getType().equals(zone.getType())) {
                 return terminals.get(i);
             }
         }
+
+        return null;
     }
 
-    public List<Terminal> showTerminal(){
+    public List<Terminal> showTerminal() {
         return terminals;
     }
 
@@ -32,12 +34,11 @@ public class Admin extends User implements AdminI{
                 return purchaseLot.get(i);
             }
         }
+
         return null;
     }
 
     public List<PurchaseLot> showPL(){
         return purchaseLot;
     }
-
-
 }
