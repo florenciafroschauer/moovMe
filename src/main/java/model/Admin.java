@@ -26,7 +26,7 @@ public class Admin extends User{
 
     public PurchaseLot getPurchaseLot(PurchaseLot lookPurchaseLot){
         for(int i = 0; i<purchaseLot.size(); i++){
-            if(purchaseLot.get(i).ALGO.equals(lookPurchaseLot.ALGO)){
+            if(purchaseLot.get(i).getKey().equals(lookPurchaseLot.getKey())){
                 return purchaseLot.get(i)
             }
         }
