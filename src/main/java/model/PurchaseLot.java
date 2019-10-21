@@ -1,5 +1,7 @@
 package model;
 
+import util.KeyGenerator;
+
 import java.util.List;
 
 public class PurchaseLot {
