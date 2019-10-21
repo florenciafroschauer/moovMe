@@ -29,4 +29,11 @@ public class Discount {
     public int getPercent() {
         return percent;
     }
+    public boolean canUse(Client client, Asset anAsset){
+        if(client.getScore() >= minScore){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
