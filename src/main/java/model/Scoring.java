@@ -1,15 +1,18 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Scoring {
-    private List<AssetI> asset;
-    private ArrayList leaderboard;
+    private ArrayList<Client> leaderBoard;
+    private final Zone zone;
+    private ArrayList<Discount> discounts;
 
-    public void leaderBoard(List<Client> clients) {
-        clients.sort((Client a, Client b)-> b.getScore() -a.getScore());
+    public Scoring(ArrayList<Client> leaderBoard, Zone zone) {
+        this.leaderBoard = leaderBoard;
+        this.zone = zone;
+    }
+
+    public void leaderBoard(ArrayList<Client> clients) {
+        clients.sort((Client a, Client b)-> b.getScore() - a.getScore());
     }
 }
-
-

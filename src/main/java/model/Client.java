@@ -4,7 +4,7 @@ import java.util.List;
 
 
 
-public class Client extends User implements ClientI{
+public class Client extends User implements ClientI {
     private String phoneNumber;
     private String nickname;
     private Boolean state;
@@ -28,8 +28,8 @@ public class Client extends User implements ClientI{
         return discounts;
     }
 
-    public void addDiscounts(Discount discountToAdd){
-        discounts.add(discounts.size() + 1, discountToAdd);
+    public void addDiscounts(Discount discountToAdd) {
+        discounts.add(discountToAdd);
     }
 
     @Override

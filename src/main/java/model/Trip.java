@@ -1,8 +1,8 @@
 package model;
 
 public class Trip implements TripI {
-    private final ClientI client;
-    private AssetI asset;
+    private final Client client;
+    private Asset asset;
     private Zone zone;
     private Integer tripTime;
     private Discount discount;
@@ -10,7 +10,7 @@ public class Trip implements TripI {
     private Tariff tariff;
     private Integer score;
 
-    public Trip(ClientI client, Asset asset, Zone zone) {
+    public Trip(Client client, Asset asset, Zone zone) {
         this.client = client;
         this.asset = asset;
         this.zone = zone;
@@ -29,42 +29,37 @@ public class Trip implements TripI {
     }
 
     @Override
-    public Integer calculateScore() {
-        return null;
-    }
-
-    @Override
     public Client getClient() {
-        return null;
+        return client;
     }
 
     @Override
     public Asset getAsset() {
-        return null;
+        return asset;
     }
 
     @Override
     public Zone getZone() {
-        return null;
+        return zone;
     }
 
     @Override
     public Integer getTripTime() {
-        return null;
+        return tripTime;
     }
 
     @Override
     public Discount getDiscount() {
-        return null;
+        return discount;
     }
 
     @Override
     public Terminal getTerminal() {
-        return null;
+        return toHandOver;
     }
 
     @Override
     public Tariff getTariff() {
-        return null;
+        return tariff;
     }
 }

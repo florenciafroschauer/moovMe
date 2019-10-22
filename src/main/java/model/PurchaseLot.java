@@ -27,5 +27,4 @@ public class PurchaseLot {
     public Zone getZone() {
         return zone;
     }
-
 }
