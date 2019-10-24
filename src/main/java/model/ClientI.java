@@ -4,7 +4,10 @@ import java.util.List;
 
 public interface ClientI {
     Integer getScore();
-    List<Discount>showDiscounts();
+    List<Discount> getDiscounts();
     void addDiscounts(Discount discounts);
     Integer sumScore(Integer score);
+    void setNickname(String nickname);
+    void setPhoneNumber(String phoneNumber);
+    void addZone(Zone zone);
 }

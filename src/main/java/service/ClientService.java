@@ -14,7 +14,7 @@ public class ClientService {
     }
 
     public List<Discount>showDiscounts(Client client) {
-        return client.showDiscounts();
+        return client.getDiscounts();
     }
 
 }
