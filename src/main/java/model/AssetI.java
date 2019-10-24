@@ -9,4 +9,5 @@ public interface AssetI {
     String getType();
     Discount getDiscount();
     PurchaseLot getLot();
+    Tariff getTariff();
 }

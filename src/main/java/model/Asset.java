@@ -47,4 +47,6 @@ public class Asset implements AssetI {
     public PurchaseLot getLot() {
         return purchaseLot;
     }
+
+    public Tariff getTariff() { return tariff; }
 }

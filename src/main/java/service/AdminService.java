@@ -34,7 +34,7 @@ public class AdminService {
     }
 
     public Integer reportTrip(Trip trip){//multo, bloqueo, restituyo a donde?
-
+        trip.getAsset().getTariff().getTripValue();
     }
 
     public Terminal createTerminal(Zone zone, String name){
