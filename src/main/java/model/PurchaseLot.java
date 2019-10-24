@@ -10,7 +10,7 @@ public class PurchaseLot {
     private final KeyGenerator key;
     private final Zone zone;
 
-    public PurchaseLot(String assetType, KeyGenerator key, Zone zone) {
+    public PurchaseLot(KeyGenerator key, Zone zone) {
         this.assetType = assetType;
         this.key = key;
         this.zone = zone;
@@ -18,10 +18,6 @@ public class PurchaseLot {
 
     public KeyGenerator getKey() {
         return key;
-    }
-
-    public String getAssetType() {
-        return assetType;
     }
 
     public Zone getZone() {
