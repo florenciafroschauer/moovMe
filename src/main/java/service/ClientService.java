@@ -2,11 +2,13 @@ package service;
 
 import model.Client;
 import model.Discount;
-
 import java.util.List;
 
-public class ClientService {
+/**
+ * Mostrar todas las cosas del perfil (Nickname, PhoneNumber)
+ */
 
+public class ClientService {
     private Client client;
 
     public Integer showScore(Client client) {

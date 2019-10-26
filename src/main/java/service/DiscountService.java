@@ -4,6 +4,10 @@ import model.Client;
 import model.Discount;
 import model.Trip;
 
+/**
+ * Mostrar los descuentos existentes, chequeando que se puedan usar en un trip especifico.
+ */
+
 public class DiscountService {
     private Discount discount;
 
