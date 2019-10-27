@@ -2,8 +2,12 @@ package service;
 
 import model.*;
 import util.KeyGenerator;
-
 import java.util.List;
+
+/**
+ * Crear descuentos.
+ * Crear activos.
+ */
 
 public class AdminService {
 
