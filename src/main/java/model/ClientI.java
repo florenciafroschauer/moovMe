@@ -10,4 +10,6 @@ public interface ClientI {
     void setNickname(String nickname);
     void setPhoneNumber(String phoneNumber);
     void addZone(Zone zone);
+    void blockClient();
+    void unBlockClient();
 }

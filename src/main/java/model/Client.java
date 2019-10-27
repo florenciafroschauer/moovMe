@@ -4,7 +4,7 @@ import java.util.List;
 public class Client extends User implements ClientI {
     private String phoneNumber;
     private String nickname;
-    private Boolean state;
+    private Boolean isBlocked;
     private List<Zone> zones;
     private Integer score;
     private List<Discount> discounts;
@@ -49,4 +49,11 @@ public class Client extends User implements ClientI {
     public void addZone(Zone zone) {
         zones.add(zone);
     }
+
+    @Override
+    public void blockClient() { isBlocked = true; }
+
+    @Override
+    public void unBlockClient() { isBlocked = false; }
+
 }

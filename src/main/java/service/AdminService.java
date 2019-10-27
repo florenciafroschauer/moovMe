@@ -15,24 +15,25 @@ public class AdminService {
     private List<Client> clients;
     private List<Terminal> terminals;
     private List<PurchaseLot> purchaseLots;
+    private List<Discount> discounts;
 
 
     public void blockClient(Client client){
-        for(int i = 0; i<clients.size(); i++){
-            if(clients.get(i).equals(client)){
-                clients.remove(i);
-                clients.remove(null);
-                blockedClients.add(blockedClients.size() + 1, client);
+        for (Client client1: clients) {
+            if (client1.equals(client)) {
+                clients.remove(client);
+                blockedClients.add(client);
+                client.blockClient();
             }
         }
     }
 
     public void unBlockClient(Client client){
-        for(int i = 0; i<blockedClients.size(); i++){
-            if(blockedClients.get(i).equals(client)){
-                blockedClients.remove(i);
-                blockedClients.remove(null);
-                clients.add(clients.size() + 1, client);
+        for (Client client1: blockedClients) {
+            if (client1.equals(client)) {
+                blockedClients.remove(client);
+                clients.add(client);
+                client.unBlockClient();
             }
         }
     }
@@ -41,13 +42,36 @@ public class AdminService {
 
     }
 
-    public Terminal createTerminal(Zone zone, String name){
+    public String createAsset(Zone zone, String assetType) {
+        for (PurchaseLot purchaseLot:purchaseLots) {
+            if(purchaseLot.getAssetType().equals(assetType) && purchaseLot.getZone().equals(zone)) {
+                Asset asset = purchaseLot.createAsset();
+                for (Terminal terminal: terminals) {
+                    if(terminal.showZone().equals(zone)){
+                        terminal.receive(asset);
+                        return "Your Asset has been created correctly";
+                    }
+                    return "Terminal could not recive asset";
+                }
+            }
+        }
+        return "Your Asset was not created";
+    }
+
+    public Discount createDiscount(String assetType, Integer minScore, Zone zone, int percent) {
+        Discount discount = new Discount(assetType, minScore, zone, percent);
+        discounts.add(discount);
+        return discount;
+    }
+
+    public Terminal createTerminal(Zone zone, String name) {
         Terminal terminal = new Terminal(zone, name);
         return terminal;
     }
 
-    public PurchaseLot createPurchaseLot(KeyGenerator keyGenerator, Zone zone){
-        PurchaseLot purchaseLot = new PurchaseLot(keyGenerator, zone);
+    public PurchaseLot createPurchaseLot(KeyGenerator keyGenerator, Zone zone, String assetType) {
+        PurchaseLot purchaseLot = new PurchaseLot(keyGenerator, zone, assetType);
+        purchaseLots.add(purchaseLot);
         return purchaseLot;
     }
 }
