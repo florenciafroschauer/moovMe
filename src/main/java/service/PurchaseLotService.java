@@ -18,3 +18,13 @@ public class PurchaseLotService {
         return asset;
     }
 }
+
+/**
+ * TerminalService terminalService;
+ *
+ * public Asset createAsset(Zone zone, String assetType, Terminal terminal) {
+ *         Asset asset = new Asset(new KeyGenerator, zone, assetType);
+ *         terminalService.receive(asset);
+ *         return asset;
+ *     }
+ */
