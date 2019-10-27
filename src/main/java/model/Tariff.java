@@ -1,10 +1,10 @@
 package model;
 
 public class Tariff {
-    private Integer tripValue = 0;
+    private Double tripValue = 0;
     private AssetI asset;
 
-    public Integer getTripValue() {
+    public Double getTripValue() {
         return tripValue;
     }
 
