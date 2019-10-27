@@ -6,8 +6,14 @@ public class Discount {
     private final Zone zone;
     private final int percent;
 
+    /**
+     * Podriamos hacer que el discount reciba solo un asset y un porcentaje
+     * y del asset sacamos el tipo, zona y puntaje minimo.
+     * ¿que dicen??
+     */
+
     public Discount(String assetType, Integer minScore, Zone zone, int percent) {
-        this.assetType = assetType;
+        this.assetType = assetType; // asset.getAssetType();
         this.minScore = minScore;
         this.zone = zone;
         this.percent = percent;
@@ -28,16 +34,4 @@ public class Discount {
     public int getPercent() {
         return percent;
     }
-
-    /**
-    public boolean canUse(Client client) {
-        if (client.getScore() >= minScore) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-     * return client.getScore() >= minScore;
-     */
 }

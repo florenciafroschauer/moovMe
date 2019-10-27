@@ -10,4 +10,5 @@ public interface AssetI {
     Discount getDiscount();
     PurchaseLot getLot();
     Tariff getTariff();
+    void setPurchaseLot(PurchaseLot lot);
 }

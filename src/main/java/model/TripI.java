@@ -1,13 +1,15 @@
 package model;
 
+import java.util.Date;
+
 public interface TripI {
     void setDiscount(Discount discount);
     void setToHandOver(Terminal toHandOver);
-    void setTripTime(Integer tripTime);
+    void setTripTime(Date tripTime);
     Client getClient();
     Asset getAsset();
     Zone getZone();
-    Integer getTripTime();
+    Date getTripTime();
     Discount getDiscount();
     Terminal getTerminal();
     Tariff getTariff();

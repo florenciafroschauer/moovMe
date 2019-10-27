@@ -18,7 +18,7 @@ public class AdminService {
     private List<Discount> discounts;
 
 
-    public void blockClient(Client client){
+    public void blockClient(Client client) {
         for (Client client1: clients) {
             if (client1.equals(client)) {
                 clients.remove(client);
@@ -28,7 +28,7 @@ public class AdminService {
         }
     }
 
-    public void unBlockClient(Client client){
+    public void unBlockClient(Client client) {
         for (Client client1: blockedClients) {
             if (client1.equals(client)) {
                 blockedClients.remove(client);
@@ -38,16 +38,16 @@ public class AdminService {
         }
     }
 
-    public Integer reportTrip(Trip trip){//multo, bloqueo, restituyo a donde?
+    public Integer reportTrip(Trip trip) { return 0; //multo, bloqueo, restituyo a donde?
 
     }
 
     public String createAsset(Zone zone, String assetType) {
         for (PurchaseLot purchaseLot:purchaseLots) {
-            if(purchaseLot.getAssetType().equals(assetType) && purchaseLot.getZone().equals(zone)) {
+            if (purchaseLot.getAssetType().equals(assetType) && purchaseLot.getZone().equals(zone)) {
                 Asset asset = purchaseLot.createAsset();
                 for (Terminal terminal: terminals) {
-                    if(terminal.showZone().equals(zone)){
+                    if (terminal.showZone().equals(zone)) {
                         terminal.receive(asset);
                         return "Your Asset has been created correctly";
                     }

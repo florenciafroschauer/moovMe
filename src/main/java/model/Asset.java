@@ -48,5 +48,11 @@ public class Asset implements AssetI {
         return purchaseLot;
     }
 
+    @Override
     public Tariff getTariff() { return tariff; }
+
+    @Override
+    public void setPurchaseLot(PurchaseLot purchaseLot) {
+        this.purchaseLot = purchaseLot;
+    }
 }

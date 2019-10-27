@@ -26,6 +26,11 @@ public class Client extends User implements ClientI {
     }
 
     @Override
+    public String getNickname() {
+        return nickname;
+    }
+
+    @Override
     public void addDiscounts(Discount discountToAdd) {
         discounts.add(discountToAdd);
     }

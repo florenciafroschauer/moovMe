@@ -1,10 +1,12 @@
 package model;
 
+import java.util.Date;
+
 public class Trip implements TripI {
     private final Client client;
     private Asset asset;
     private Zone zone;
-    private Integer tripTime;
+    private Date tripTime;
     private Discount discount;
     private Terminal toHandOver;
     private Tariff tariff;
@@ -16,15 +18,18 @@ public class Trip implements TripI {
         this.zone = zone;
     }
 
+    @Override
     public void setDiscount(Discount discount) {
         this.discount = discount;
     }
 
+    @Override
     public void setToHandOver(Terminal toHandOver) {
         this.toHandOver = toHandOver;
     }
 
-    public void setTripTime(Integer tripTime) {
+    @Override
+    public void setTripTime(Date tripTime) {
         this.tripTime = tripTime;
     }
 
@@ -44,7 +49,7 @@ public class Trip implements TripI {
     }
 
     @Override
-    public Integer getTripTime() {
+    public Date getTripTime() {
         return tripTime;
     }
 

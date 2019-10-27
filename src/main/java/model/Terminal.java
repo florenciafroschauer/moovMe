@@ -24,14 +24,4 @@ public class Terminal {
     public void receive(Asset asset) {
         assets.add(asset);
     }
-
-    /**
-    // si entrega a horario sumar 20% de puntos.
-    public Asset grant(String assetType) {
-        for (Asset asset: assets) {
-            if (asset.getType().equals(assetType)) return asset;
-
-        } return null;
-    }
-     */
 }
