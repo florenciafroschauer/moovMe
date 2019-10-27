@@ -12,7 +12,7 @@ public class ClientService {
     private Client client;
 
     public Integer showScore(Client client) {
-        return client.getScore();
+        return client.getAccumulatedScore();
     }
 
     public List<Discount>showDiscounts(Client client) {

@@ -12,7 +12,7 @@ public class Scoring {
     }
 
     public void sortLeaderBoard(List<Client> clients) {
-        clients.sort((Client a, Client b)-> b.getScore() - a.getScore());
+        clients.sort((Client a, Client b)-> b.getAccumulatedScore() - a.getAccumulatedScore());
     }
 
     public void addDiscount(Discount discount) {

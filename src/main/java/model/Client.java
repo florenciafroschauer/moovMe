@@ -6,7 +6,8 @@ public class Client extends User implements ClientI {
     private String nickname;
     private Boolean isBlocked;
     private List<Zone> zones;
-    private Integer score;
+    private Integer accumulatedScore;
+    private Integer scoreToUse;
     private List<Discount> discounts;
 
     public Client(String username, String password, String phoneNumber, String nickname) {
@@ -16,8 +17,8 @@ public class Client extends User implements ClientI {
     }
 
     @Override
-    public Integer getScore(){
-        return score;
+    public Integer getAccumulatedScore(){
+        return accumulatedScore;
     }
 
     @Override
@@ -31,13 +32,19 @@ public class Client extends User implements ClientI {
     }
 
     @Override
+    public Integer getScoreToUse() {
+        return scoreToUse;
+    }
+
+    @Override
     public void addDiscounts(Discount discountToAdd) {
         discounts.add(discountToAdd);
     }
 
     @Override
-    public Integer sumScore(Integer score) {
-        return this.score += score;
+    public void sumScore(Integer score) {
+        this.accumulatedScore += score;
+        this.scoreToUse += score;
     }
 
     @Override
