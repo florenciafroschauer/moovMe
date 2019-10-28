@@ -19,4 +19,7 @@ public class ClientService {
         return client.getDiscounts();
     }
 
+    public String showPhoneNumber(Client client) { return client.getPhoneNumber(); }
+
+    public String showNickname(Client client) { return client.getNickname(); }
 }

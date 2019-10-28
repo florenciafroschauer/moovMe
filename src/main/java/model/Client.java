@@ -68,4 +68,7 @@ public class Client extends User implements ClientI {
     @Override
     public void unBlockClient() { isBlocked = false; }
 
+    @Override
+    public String getPhoneNumber() { return phoneNumber; }
+
 }
