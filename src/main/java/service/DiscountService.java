@@ -24,7 +24,7 @@ public class DiscountService {
         return discountsToUse;
     }
 
-    public boolean canUse(Discount discount, Trip trip) {
+    private boolean canUse(Discount discount, Trip trip) {
 
         return trip.getClient().getAccumulatedScore() >= discount.getMinScore() &&
                 trip.getAsset().getType().equals(discount.getAssetType()) &&

@@ -49,15 +49,24 @@ public class TripService {
 
     public Double calculateTariff(){
 
-        Double tripValue = trip.getTariff().getTripValue();
-        tripValue = tripValue * trip.getZone().getRate();
-        return tripValue;
+        /**
+         * Double tripValue = trip.getTariff().getTripValue();
+         *         tripValue = tripValue * trip.getZone().getRate();
+         *         return tripValue;
+         */
+
+        return 0.0;
     }
 
     public Double givePoints(){
 
-        Double awardedPoints = tripValue * 0.85;
-        return awardedPoints;
+        /**
+         *  Double awardedPoints = tripValue * 0.85;
+         *         return awardedPoints;
+         */
+
+        return 0.0;
+
     }
 
 }
