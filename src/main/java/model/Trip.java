@@ -12,6 +12,7 @@ public class Trip implements TripI {
     private Tariff tariff;
     private Integer score;
 
+
     public Trip(Client client, Asset asset, Zone zone) {
         this.client = client;
         this.asset = asset;
@@ -31,6 +32,21 @@ public class Trip implements TripI {
     @Override
     public void setTripTime(Date tripTime) {
         this.tripTime = tripTime;
+    }
+
+    @Override
+    public void setAsset(Asset asset) {
+        this.asset = asset;
+    }
+
+    @Override
+    public void setZone(Zone zone) {
+        this.zone = zone;
+    }
+
+    @Override
+    public void setTerminal(Terminal terminal) {
+        this.toHandOver = terminal;
     }
 
     @Override
