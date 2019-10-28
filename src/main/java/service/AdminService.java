@@ -43,18 +43,25 @@ public class AdminService {
     }
 
     public String createAsset(Zone zone, String assetType) {
-        for (PurchaseLot purchaseLot:purchaseLots) {
+        for (PurchaseLot purchaseLot: purchaseLots) {
+
             if (purchaseLot.getAssetType().equals(assetType) && purchaseLot.getZone().equals(zone)) {
-                Asset asset = purchaseLot.createAsset();
+
+                // Asset asset = purchaseLot.createAsset(zone, assetType);
+
                 for (Terminal terminal: terminals) {
+
                     if (terminal.showZone().equals(zone)) {
-                        terminal.receive(asset);
+                        // terminal.receive(asset);
+
                         return "Your Asset has been created correctly";
                     }
+
                     return "Terminal could not recive asset";
                 }
             }
         }
+
         return "Your Asset was not created";
     }
 
@@ -65,8 +72,7 @@ public class AdminService {
     }
 
     public Terminal createTerminal(Zone zone, String name) {
-        Terminal terminal = new Terminal(zone, name);
-        return terminal;
+        return new Terminal(zone, name);
     }
 
     public PurchaseLot createPurchaseLot(KeyGenerator keyGenerator, Zone zone, String assetType) {

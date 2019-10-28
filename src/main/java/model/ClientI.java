@@ -14,5 +14,6 @@ public interface ClientI {
     void addZone(Zone zone);
     void blockClient();
     void unBlockClient();
+    String getPhoneNumber();
 
 }
