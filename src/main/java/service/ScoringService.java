@@ -4,6 +4,7 @@ import model.Client;
 import model.Discount;
 import model.Scoring;
 import model.Zone;
+import util.AssetType;
 
 import java.util.Date;
 import java.util.ArrayList;
@@ -19,8 +20,7 @@ import java.util.List;
 public class ScoringService {
     private Scoring scoring;
 
-
-    public Discount createDiscount(String assetType, Integer minScore, Zone zone, int percent) {
+    public Discount createDiscount(AssetType assetType, Integer minScore, Zone zone, Integer percent) {
         Discount discount = new Discount(assetType, minScore, zone, percent);
         scoring.addDiscount(discount);
         return discount;

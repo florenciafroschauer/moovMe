@@ -3,6 +3,6 @@ package model;
 import java.util.List;
 
 public interface AdminI {
-    List<Terminal>showTerminal();
-    List<PurchaseLot>showPL();
+    List<Terminal> showTerminal();
+    List<PurchaseLot> showPL();
 }

@@ -1,5 +1,6 @@
 package service;
 import model.*;
+import util.AssetType;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,7 +17,7 @@ public class TerminalService {
     private List<Asset> assets;
     private List<Terminal> terminals;
 
-    public Asset deliverAsset(String assetType) {
+    public Asset deliverAsset(AssetType assetType) {
         for (Asset asset: assets) {
             if (asset.getType().equals(assetType)) {
                 return asset;
@@ -46,7 +47,8 @@ public class TerminalService {
     }
 
     public Discount reward(Trip trip) {
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        //DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
         Date date = new Date();
 
         if (date.compareTo(trip.getTripTime()) <= 0) {

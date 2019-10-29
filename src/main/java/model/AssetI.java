@@ -1,12 +1,13 @@
 package model;
 
+import util.AssetType;
 import util.KeyGenerator;
 
 public interface AssetI {
     KeyGenerator getKey();
     Integer getMinScore();
     Zone getZone();
-    String getType();
+    AssetType getType();
     Discount getDiscount();
     PurchaseLot getLot();
     Tariff getTariff();

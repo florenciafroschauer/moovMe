@@ -1,7 +1,9 @@
 package model;
 
+import util.AssetType;
+
 public class Discount {
-    private final String assetType;
+    private final AssetType assetType;
     private final Integer minScore;
     private final Zone zone;
     private final int percent;
@@ -12,14 +14,14 @@ public class Discount {
      * ¿que dicen??
      */
 
-    public Discount(String assetType, Integer minScore, Zone zone, int percent) {
+    public Discount(AssetType assetType, Integer minScore, Zone zone, int percent) {
         this.assetType = assetType; // asset.getAssetType();
         this.minScore = minScore;
         this.zone = zone;
         this.percent = percent;
     }
 
-    public String getAssetType() {
+    public AssetType getAssetType() {
         return assetType;
     }
 

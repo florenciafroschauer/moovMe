@@ -1,6 +1,7 @@
 package service;
 
 import model.*;
+import util.AssetType;
 import util.KeyGenerator;
 import java.util.List;
 
@@ -38,11 +39,16 @@ public class AdminService {
         }
     }
 
-    public Integer reportTrip(Trip trip) { return 0; //multo, bloqueo, restituyo a donde?
+    public Integer reportTrip(Trip trip, Terminal toHandOver) {//multo, bloqueo, restituyo a donde?
 
+        Integer valordelamulta = 0;
+        trip.getTariff().getTripValue() + valordelamulta;
+        blockClient(trip.getClient());
+        trip.setTerminal(toHandOver);
+         return valordelamulta;
     }
 
-    public String createAsset(Zone zone, String assetType) {
+    public String createAsset(Zone zone, AssetType assetType) {
         for (PurchaseLot purchaseLot: purchaseLots) {
 
             if (purchaseLot.getAssetType().equals(assetType) && purchaseLot.getZone().equals(zone)) {
@@ -65,7 +71,7 @@ public class AdminService {
         return "Your Asset was not created";
     }
 
-    public Discount createDiscount(String assetType, Integer minScore, Zone zone, int percent) {
+    public Discount createDiscount(AssetType assetType, Integer minScore, Zone zone, int percent) {
         Discount discount = new Discount(assetType, minScore, zone, percent);
         discounts.add(discount);
         return discount;
@@ -75,7 +81,7 @@ public class AdminService {
         return new Terminal(zone, name);
     }
 
-    public PurchaseLot createPurchaseLot(KeyGenerator keyGenerator, Zone zone, String assetType) {
+    public PurchaseLot createPurchaseLot(KeyGenerator keyGenerator, Zone zone, AssetType assetType) {
         PurchaseLot purchaseLot = new PurchaseLot(keyGenerator, zone, assetType);
         purchaseLots.add(purchaseLot);
         return purchaseLot;

@@ -1,18 +1,26 @@
 package model;
 
+import util.AssetType;
 import util.KeyGenerator;
+
+/**
+ * puntos
+ * multa
+ * tarifa
+ */
 
 public class Asset implements AssetI {
 
     private final KeyGenerator key;
     private Tariff tariff;
-    private Integer minScore;
-    private final Zone zone;
-    private final String assetType;
-    private Discount discount;
-    private PurchaseLot purchaseLot;
 
-    public Asset(KeyGenerator key, Zone zone, String assetType) {
+    private final Zone zone;
+    private Discount discount;
+    private Integer minScore;
+    private PurchaseLot purchaseLot;
+    private final AssetType assetType;
+
+    public Asset(KeyGenerator key, Zone zone, AssetType assetType) {
         this.key = key;
         this.zone = zone;
         this.assetType = assetType;
@@ -34,7 +42,7 @@ public class Asset implements AssetI {
     }
 
     @Override
-    public String getType() {
+    public AssetType getType() {
         return assetType;
     }
 
