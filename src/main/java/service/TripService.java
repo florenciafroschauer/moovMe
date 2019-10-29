@@ -19,6 +19,7 @@ import java.util.Date;
 public class TripService {
 
     private Trip trip;
+
     public void setAsset(Asset asset) {
 
         trip.setAsset(asset);
@@ -47,25 +48,32 @@ public class TripService {
         trip.setTripTime(date);
     }
 
-    public Double calculateTariff(){
+    public Integer calculateTariff(Trip trip, Discount discount, Fine fine){ /** la tarifa depende de precio del activo por minuto, tiempo viajado, zona, descuento y multa */
 
-        /**
-         * Double tripValue = trip.getTariff().getTripValue();
-         *         tripValue = tripValue * trip.getZone().getRate();
-         *         return tripValue;
-         */
 
-        return 0.0;
+
+
+        Integer tripValue = (Integer)(trip.getTripTime().getMinutes()) *  trip.getAsset().getType().getPricePerMinute() * trip.getZone().getRate();
+
+
+        if(discount != null){
+
+           tripValue = tripValue * discount.getPercent();
+        }
+        if(fine != null){
+
+            tripValue = tripValue * fine.getFineValue();
+        }
+
+        return tripValue;
     }
 
-    public Double givePoints(){
+    public Integer givePoints(Integer awardedPoints, Trip trip){ /** los puntos ganados dependen de la cantidad de tiempo viajado y el valor de puntos del activo */
 
-        /**
-         *  Double awardedPoints = tripValue * 0.85;
-         *         return awardedPoints;
-         */
 
-        return 0.0;
+        awardedPoints = (Integer)(trip.getTripTime().getMinutes()) * trip.getAsset().getType().getScorePerMinute();
+
+        return awardedPoints;
 
     }
 
