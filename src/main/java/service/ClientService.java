@@ -22,4 +22,6 @@ public class ClientService {
     public String showPhoneNumber(Client client) { return client.getPhoneNumber(); }
 
     public String showNickname(Client client) { return client.getNickname(); }
+
+    public Client showClient(Client client){return client.}
 }
