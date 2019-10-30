@@ -9,14 +9,17 @@ package model;
 public class Fine {
 
     private Zone zone;
-    private Integer fineValue = 500 * zone.getRate();
+    private int basePrice;
+    private Integer fineValue;
 
+    public Fine(Zone zone, int basePrice){
+        this.zone = zone;
+        this.basePrice = basePrice;
+        this.fineValue = basePrice * zone.getRate();
+    }
 
     public Integer getFineValue() {
         return fineValue;
     }
 
-    public void setFineValue(Integer fineValue) {
-        this.fineValue = fineValue;
-    }
 }

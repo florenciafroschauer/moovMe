@@ -58,11 +58,11 @@ public class TripService {
 
         if(discount != null){
 
-           tripValue = tripValue * discount.getPercent();
+           tripValue = tripValue + discount.getPercent();
         }
         if(fine != null){
 
-            tripValue = tripValue * fine.getFineValue();
+            tripValue = tripValue + fine.getFineValue();
         }
 
         return tripValue;

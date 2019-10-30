@@ -39,13 +39,11 @@ public class AdminService {
         }
     }
 
-    public Integer reportTrip(Trip trip, Terminal toHandOver) {//multo, bloqueo, restituyo a donde?
-
-        Integer valordelamulta = 0;
-        trip.getTariff().getTripValue() + valordelamulta;
+    public Fine reportTrip(Trip trip, Terminal toHandOver, int baseFine) {//multo, bloqueo, restituyo a donde?
+        Fine fine = new Fine(trip.getZone(), baseFine);
         blockClient(trip.getClient());
         trip.setTerminal(toHandOver);
-         return valordelamulta;
+         return fine;
     }
 
     public String createAsset(Zone zone, AssetType assetType) {
