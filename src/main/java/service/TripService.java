@@ -5,6 +5,7 @@ import model.*;
 import java.util.Date;
 
 /**
+ *  --COMPLETADO--
  * Setear un asset.
  * Setear zona.
  * Setear terminal.
