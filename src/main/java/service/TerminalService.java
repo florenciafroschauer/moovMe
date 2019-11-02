@@ -1,9 +1,6 @@
 package service;
 import model.*;
 import util.AssetType;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -46,15 +43,12 @@ public class TerminalService {
         return assetList;
     }
 
-    public Discount reward(Trip trip) {
-        //DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-
+    public Integer reward(Trip trip) {
         Date date = new Date();
 
         if (date.compareTo(trip.getTripTime()) <= 0) {
-            return new Discount(trip.getAsset().getType(),
-                    trip.getAsset().getMinScore(),
-                    trip.getZone(), 20);
+            Integer score = (int)(trip.getScore() * 0.2);
+            trip.setScore(score);
         }
 
         return null;

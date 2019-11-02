@@ -5,21 +5,18 @@ import util.KeyGenerator;
 
 import java.util.List;
 
-/**
- * cantidad de activos
- * cuando compro activos se crea un lote
- */
-
 public class PurchaseLot {
-    private List<AssetI> assets;
+    private List<Asset> assets;
     private final KeyGenerator key;
     private final Zone zone;
     private final AssetType assetType;
+    private final int lot;
 
-    public PurchaseLot(KeyGenerator key, Zone zone, AssetType assetType) {
+    public PurchaseLot(KeyGenerator key, Zone zone, AssetType assetType, int lot) {
         this.key = key;
         this.zone = zone;
         this.assetType = assetType;
+        this.lot = lot;
     }
 
     public KeyGenerator getKey() {
@@ -32,5 +29,9 @@ public class PurchaseLot {
 
     public AssetType getAssetType() {
         return assetType;
+    }
+
+    public int getLot() {
+        return lot;
     }
 }

@@ -2,12 +2,17 @@ package service;
 
 import model.*;
 import util.AssetType;
+import util.Fine;
 import util.KeyGenerator;
 import java.util.List;
 
 /**
+ * Bloquear clientes.
+ * Desbloquear clientes.
+ * Reportar viajes.
  * Crear descuentos.
- * Crear activos.
+ * Crear lotes de compra (activos).
+ * Crear terminales.
  */
 
 public class AdminService {
@@ -17,6 +22,8 @@ public class AdminService {
     private List<Terminal> terminals;
     private List<PurchaseLot> purchaseLots;
     private List<Discount> discounts;
+    private PurchaseLotService lotService;
+    private TerminalService terminalService;
 
 
     public void blockClient(Client client) {
@@ -39,49 +46,47 @@ public class AdminService {
         }
     }
 
-    public Fine reportTrip(Trip trip, Terminal toHandOver, int baseFine) {//multo, bloqueo, restituyo a donde?
+    public Fine reportTrip(Trip trip, Terminal toHandOver, int baseFine) {
         Fine fine = new Fine(trip.getZone(), baseFine);
+
         blockClient(trip.getClient());
-        trip.setTerminal(toHandOver);
+        trip.setTerminalToHandOver(toHandOver);
+
          return fine;
     }
 
-    public String createAsset(Zone zone, AssetType assetType) {
-        for (PurchaseLot purchaseLot: purchaseLots) {
-
-            if (purchaseLot.getAssetType().equals(assetType) && purchaseLot.getZone().equals(zone)) {
-
-                // Asset asset = purchaseLot.createAsset(zone, assetType);
-
-                for (Terminal terminal: terminals) {
-
-                    if (terminal.showZone().equals(zone)) {
-                        // terminal.receive(asset);
-
-                        return "Your Asset has been created correctly";
-                    }
-
-                    return "Terminal could not recive asset";
-                }
-            }
+    public PurchaseLot createPurchaseLot(Zone zone, AssetType assetType, Terminal terminal, int lot) {
+        if (!terminal.showZone().equals(zone)) {
+            throw new RuntimeException("Terminal not compatible with the zone.");
         }
+            PurchaseLot purchaseLot = new PurchaseLot(new KeyGenerator(), zone, assetType, lot);
+            purchaseLots.add(purchaseLot);
 
-        return "Your Asset was not created";
+            Asset asset = createAsset(zone, assetType, terminal, purchaseLot);
+
+            lotService.createLot(asset, lot);
+
+            return purchaseLot;
+
+    }
+
+    private Asset createAsset(Zone zone, AssetType assetType, Terminal terminal, PurchaseLot purchaseLot) {
+
+        Asset asset = new Asset(new KeyGenerator(), zone, assetType, terminal, purchaseLot);
+        terminalService.receive(asset);
+
+        return asset;
     }
 
     public Discount createDiscount(AssetType assetType, Integer minScore, Zone zone, int percent) {
+
         Discount discount = new Discount(assetType, minScore, zone, percent);
         discounts.add(discount);
+
         return discount;
     }
 
     public Terminal createTerminal(Zone zone, String name) {
         return new Terminal(zone, name);
-    }
-
-    public PurchaseLot createPurchaseLot(KeyGenerator keyGenerator, Zone zone, AssetType assetType) {
-        PurchaseLot purchaseLot = new PurchaseLot(keyGenerator, zone, assetType);
-        purchaseLots.add(purchaseLot);
-        return purchaseLot;
     }
 }

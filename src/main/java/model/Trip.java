@@ -1,5 +1,8 @@
 package model;
 
+import util.Tariff;
+import util.TripState;
+
 import java.util.Date;
 
 public class Trip implements TripI {
@@ -11,28 +14,12 @@ public class Trip implements TripI {
     private Terminal toHandOver;
     private Tariff tariff;
     private Integer score;
+    private TripState tripState;
 
-
-    public Trip(Client client, Asset asset, Zone zone) {
+    public Trip(Client client) {
         this.client = client;
-        this.asset = asset;
-        this.zone = zone;
     }
 
-    @Override
-    public void setDiscount(Discount discount) {
-        this.discount = discount;
-    }
-
-    @Override
-    public void setToHandOver(Terminal toHandOver) {
-        this.toHandOver = toHandOver;
-    }
-
-    @Override
-    public void setTripTime(Date tripTime) {
-        this.tripTime = tripTime;
-    }
 
     @Override
     public void setAsset(Asset asset) {
@@ -45,8 +32,33 @@ public class Trip implements TripI {
     }
 
     @Override
-    public void setTerminal(Terminal terminal) {
-        this.toHandOver = terminal;
+    public void setTripTime(Date tripTime) {
+        this.tripTime = tripTime;
+    }
+
+    @Override
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
+
+    @Override
+    public void setTerminalToHandOver(Terminal toHandOver) {
+        this.toHandOver = toHandOver;
+    }
+
+    @Override
+    public void setTariff(Tariff tariff) {
+        this.tariff = tariff;
+    }
+
+    @Override
+    public void setScore(Integer score) {
+        this.score += score;
+    }
+
+    @Override
+    public void setTripState(TripState tripState) {
+        this.tripState = tripState;
     }
 
     @Override
@@ -82,5 +94,15 @@ public class Trip implements TripI {
     @Override
     public Tariff getTariff() {
         return tariff;
+    }
+
+    @Override
+    public Integer getScore() {
+        return score;
+    }
+
+    @Override
+    public TripState getTripState() {
+        return tripState;
     }
 }

@@ -1,11 +1,12 @@
 package service;
 
 import model.*;
+import util.Fine;
+import util.Tariff;
 
 import java.util.Date;
 
 /**
- *  --COMPLETADO--
  * Setear un asset.
  * Setear zona.
  * Setear terminal.
@@ -18,64 +19,45 @@ import java.util.Date;
  */
 
 public class TripService {
-
     private Trip trip;
 
-    public void setAsset(Asset asset) {
+    public void setZone(Zone zone) {
+        trip.setZone(zone);
+    }
 
+    public void setAsset(Asset asset) {
         trip.setAsset(asset);
 
     }
 
-    public void setZone(Zone zone) {
-
-        trip.setZone(zone);
-    }
-
-    public void setTerminal(Terminal terminal){
-
-        trip.setTerminal(terminal);
-
-    }
-
-    public void setDiscount(Discount discount){
-
-        trip.setDiscount(discount);
-
-    }
-
-    public void setTime(Date date){
-
+    public void setTripTime(Date date) {
         trip.setTripTime(date);
     }
 
-    public Integer calculateTariff(Trip trip, Discount discount, Fine fine){ /** la tarifa depende de precio del activo por minuto, tiempo viajado, zona, descuento y multa */
-
-
-
-
-        Integer tripValue = (Integer)(trip.getTripTime().getMinutes()) *  trip.getAsset().getType().getPricePerMinute() * trip.getZone().getRate();
-
-
-        if(discount != null){
-
-           tripValue = tripValue + discount.getPercent();
-        }
-        if(fine != null){
-
-            tripValue = tripValue + fine.getFineValue();
-        }
-
-        return tripValue;
+    public void setDiscount(Discount discount){
+        trip.setDiscount(discount);
     }
 
-    public Integer givePoints(Integer awardedPoints, Trip trip){ /** los puntos ganados dependen de la cantidad de tiempo viajado y el valor de puntos del activo */
-
-
-        awardedPoints = (Integer)(trip.getTripTime().getMinutes()) * trip.getAsset().getType().getScorePerMinute();
-
-        return awardedPoints;
-
+    public void setTerminalToHandOver(Terminal terminal){
+        trip.setTerminalToHandOver(terminal);
     }
 
+    public double setTariff(Trip trip, Discount discount, Fine fine) {
+        double tripValue = trip.getTariff().calculateTariff(trip, discount, fine);
+
+        Tariff tariff = new Tariff(tripValue, trip.getAsset());
+
+        trip.setTariff(tariff);
+
+        return trip.getTariff().getTripValue();
+    }
+
+    public Integer setScore(Trip trip){
+        Integer score = (Integer)(trip.getTripTime().getMinutes()) *
+                trip.getAsset().getType().getScorePerMinute();
+
+        trip.setScore(score);
+
+        return score;
+    }
 }

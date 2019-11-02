@@ -5,26 +5,20 @@ import model.Discount;
 import model.Scoring;
 import model.Zone;
 import util.AssetType;
+import util.Voucher;
 
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Generar descuentos.
+ * Generar vouchers.
  * Mostrar la tabla de lideres.
- * Persistir los datos.
- * Premiar a los tres primeros con 50% de descuento.
+ * Premiar a los tres primeros con 50% de descuento para proximo viaje.
  */
 
 public class ScoringService {
     private Scoring scoring;
-
-    public Discount createDiscount(AssetType assetType, Integer minScore, Zone zone, Integer percent) {
-        Discount discount = new Discount(assetType, minScore, zone, percent);
-        scoring.addDiscount(discount);
-        return discount;
-    }
 
     // En algun lado se tienen que separar listas de clientes por zona, los tableros son por zona.
 
@@ -45,15 +39,17 @@ public class ScoringService {
         return nicknames;
     }
 
-    // como sabe el metodo para que tipo y zona va a ser el descuento?
-    // el scoring tiene zona, entonces seria el mismo, pero tiene tipo de activo??
+    public Voucher createVoucher(String description) {
+        return new Voucher((description));
+    }
 
     public void rewardBestThree(Date date) {
-        //Discount discount = new Discount();
-        Date date1 = new Date();
+        Voucher voucher = createVoucher("Best in the area: 50% discount");
 
-        if (date.after(date1)) {
-            //scoring.getLeaderBoard().get(0).addDiscounts();
+        if (date.getDay() >= 28) {
+            scoring.getLeaderBoard().get(0).addVoucher(voucher);
+            scoring.getLeaderBoard().get(1).addVoucher(voucher);
+            scoring.getLeaderBoard().get(2).addVoucher(voucher);
         }
     }
 }

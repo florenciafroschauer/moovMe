@@ -10,19 +10,15 @@ import util.KeyGenerator;
 import java.util.List;
 
 /**
- * Guardar los service en una terminal.
- * Tambien deben guardar los activos comprados, que serian los generados por el lote.
+ * Deben guardar los activos comprados, que serian los generados por el lote.
  */
 
 public class PurchaseLotService {
     private List<Asset> purchasedAssets;
-    private TerminalService terminalService;
-    private List<PurchaseLot> purchaseLots;
 
-    public Asset createAsset(Zone zone, AssetType assetType, Terminal terminal) {
-          Asset asset = new Asset(new KeyGenerator(), zone, assetType);
-          terminalService.receive(asset);
-          purchasedAssets.add(asset);
-          return asset;
-      }
+    public void createLot(Asset asset, int lot) {
+        for (int i = 0; i <= lot; i++) {
+            purchasedAssets.add(asset);
+        }
+    }
 }

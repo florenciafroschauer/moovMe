@@ -14,19 +14,20 @@ public class DiscountService {
     private Discount discount;
 
     public List<Discount> showDiscounts(List<Discount> discounts, Trip trip) {
-        List<Discount> discountsToUse = new ArrayList<>();
+        List<Discount> discountsCanUse = new ArrayList<>();
+
         for (Discount discount: discounts) {
             if (canUse(discount, trip)) {
-                discountsToUse.add(discount);
+                discountsCanUse.add(discount);
             }
         }
 
-        return discountsToUse;
+        return discountsCanUse;
     }
 
     private boolean canUse(Discount discount, Trip trip) {
 
-        return trip.getClient().getAccumulatedScore() >= discount.getMinScore() &&
+        return trip.getClient().getScoreToUse() >= discount.getMinScore() &&
                 trip.getAsset().getType().equals(discount.getAssetType()) &&
                 trip.getZone().getType().equals(discount.getZone().getType());
     }
