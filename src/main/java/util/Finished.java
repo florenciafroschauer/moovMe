@@ -1,4 +1,5 @@
 package util;
 
-public class Finished {
+public class Finished extends TripState {
+
 }

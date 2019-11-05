@@ -9,8 +9,8 @@ import java.util.List;
  * Perguntar si es admin o client, son dos log in separados.
  */
 public class LogInService {
-    private List<Client> signedUpClients;
-    private List<Admin> signedUpAdmins;
+    private List<Client> signedUpClients; // persisitr
+    private List<Admin> signedUpAdmins; // persistir
 
     public void clientLogIn(String nickname, String password) {
         Client client1 = null;
