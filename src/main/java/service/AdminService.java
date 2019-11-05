@@ -4,6 +4,12 @@ import model.*;
 import util.AssetType;
 import util.Fine;
 import util.KeyGenerator;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -88,5 +94,107 @@ public class AdminService {
 
     public Terminal createTerminal(Zone zone, String name) {
         return new Terminal(zone, name);
+    }
+
+
+    public void saveList(){
+        //Blocked Clients List Save
+        try{
+
+            ObjectOutputStream guardarArchivo = new ObjectOutputStream(new FileOutputStream("blockedClientsSave.txt"));
+
+            guardarArchivo.writeObject(blockedClients);
+
+            guardarArchivo.close();
+
+            ObjectInputStream abrirArchivo = new ObjectInputStream(new FileInputStream("blockedClientsSave.txt"));
+
+            blockedClients = (ArrayList<Client>) abrirArchivo.readObject();
+
+            abrirArchivo.close();
+
+        } catch(Exception e){
+
+        }
+
+        //Clientes List Save
+
+        try{
+
+            ObjectOutputStream guardarArchivo = new ObjectOutputStream(new FileOutputStream("clientsSave.txt"));
+
+            guardarArchivo.writeObject(clients);
+
+            guardarArchivo.close();
+
+            ObjectInputStream abrirArchivo = new ObjectInputStream(new FileInputStream("clientsSave.txt"));
+
+            clients = (ArrayList<Client>) abrirArchivo.readObject();
+
+            abrirArchivo.close();
+
+        } catch(Exception e){
+
+        }
+
+        //Lista de Terminales
+
+        try{
+
+            ObjectOutputStream guardarArchivo = new ObjectOutputStream(new FileOutputStream("terminalsSave.txt"));
+
+            guardarArchivo.writeObject(terminals);
+
+            guardarArchivo.close();
+
+            ObjectInputStream abrirArchivo = new ObjectInputStream(new FileInputStream("terminalsSave.txt"));
+
+            terminals = (ArrayList<Terminal>) abrirArchivo.readObject();
+
+            abrirArchivo.close();
+
+        } catch(Exception e){
+
+        }
+
+        //Purchase Lot Save List
+        try{
+
+            ObjectOutputStream guardarArchivo = new ObjectOutputStream(new FileOutputStream("purchaseLotsSave.txt"));
+
+            guardarArchivo.writeObject(purchaseLots);
+
+            guardarArchivo.close();
+
+            ObjectInputStream abrirArchivo = new ObjectInputStream(new FileInputStream("purchaseLotsSave.txt"));
+
+            purchaseLots = (ArrayList<PurchaseLot>) abrirArchivo.readObject();
+
+            abrirArchivo.close();
+
+        } catch(Exception e){
+
+        }
+
+        //Discounts Save List
+
+        try{
+
+            ObjectOutputStream guardarArchivo = new ObjectOutputStream(new FileOutputStream("discountsSave.txt"));
+
+            guardarArchivo.writeObject(discounts);
+
+            guardarArchivo.close();
+
+            ObjectInputStream abrirArchivo = new ObjectInputStream(new FileInputStream("discountsSave.txt"));
+
+            discounts = (ArrayList<Discount>) abrirArchivo.readObject();
+
+            abrirArchivo.close();
+
+        } catch(Exception e){
+
+        }
+
     }
 }
