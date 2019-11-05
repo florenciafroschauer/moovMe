@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 public class PurchaseLotService {
-    private List<Asset> purchasedAssets;
+    private List<Asset> purchasedAssets; // persistir
 
     public void createLot(Asset asset, int lot) {
         for (int i = 0; i <= lot; i++) {

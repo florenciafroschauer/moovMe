@@ -17,11 +17,11 @@ import java.util.List;
 
 public class AdminService {
 
-    private List<Client> blockedClients;
-    private List<Client> clients;
-    private List<Terminal> terminals;
-    private List<PurchaseLot> purchaseLots;
-    private List<Discount> discounts;
+    private List<Client> blockedClients; // persistir
+    private List<Client> clients; // persistir
+    private List<Terminal> terminals; // persistir
+    private List<PurchaseLot> purchaseLots; // persistir
+    private List<Discount> discounts; // persistir
     private PurchaseLotService lotService;
     private TerminalService terminalService;
 

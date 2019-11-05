@@ -11,8 +11,8 @@ import java.util.List;
  */
 
 public class TerminalService {
-    private List<Asset> assets;
-    private List<Terminal> terminals;
+    private List<Asset> assets; // persistir
+    private List<Terminal> terminals; // persistir
 
     public Asset deliverAsset(AssetType assetType) {
         for (Asset asset: assets) {

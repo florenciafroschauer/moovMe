@@ -19,10 +19,11 @@ import java.util.List;
 
 public class ScoringService {
     private Scoring scoring;
+    private List<Client> clients; // persistir
 
     // En algun lado se tienen que separar listas de clientes por zona, los tableros son por zona.
 
-    public List<String> showLeaders(List<Client> clients) {
+    public List<String> showLeaders() {
 
         scoring.sortLeaderBoard(clients);
         List<String> nicknames = new ArrayList<>(10);

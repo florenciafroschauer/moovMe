@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 public class SignUpService {
-    private List<Client> signedUpClients;
+    private List<Client> signedUpClients; // persistir (creo que ya esta en admin)
 
     public void signUp(String username, String phoneNumber) {
         for (Client client: signedUpClients) {
