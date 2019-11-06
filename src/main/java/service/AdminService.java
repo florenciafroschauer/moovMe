@@ -3,6 +3,7 @@ package service;
 import model.*;
 import util.AssetType;
 import util.Fine;
+import util.InProgress;
 import util.KeyGenerator;
 
 import java.io.FileInputStream;
@@ -53,12 +54,17 @@ public class AdminService {
     }
 
     public Fine reportTrip(Trip trip, Terminal toHandOver, int baseFine) {
-        Fine fine = new Fine(trip.getZone(), baseFine);
 
-        blockClient(trip.getClient());
-        trip.setTerminalToHandOver(toHandOver);
+        if (trip.getTripState().equals(new InProgress())) {
+            Fine fine = new Fine(trip.getZone(), baseFine);
 
-         return fine;
+            blockClient(trip.getClient());
+            trip.setTerminalToHandOver(toHandOver);
+
+            return fine;
+        }
+
+        throw  new RuntimeException("This trip is not in progress");
     }
 
     public PurchaseLot createPurchaseLot(Zone zone, AssetType assetType, Terminal terminal, int lot) {

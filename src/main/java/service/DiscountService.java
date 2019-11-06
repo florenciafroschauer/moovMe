@@ -2,6 +2,7 @@ package service;
 
 import model.Discount;
 import model.Trip;
+import util.ToPlan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +27,12 @@ public class DiscountService {
     }
 
     private boolean canUse(Discount discount, Trip trip) {
+        if (trip.getTripState().equals(new ToPlan())) {
+            return trip.getClient().getScoreToUse() >= discount.getMinScore() &&
+                    trip.getAsset().getType().equals(discount.getAssetType()) &&
+                    trip.getZone().getType().equals(discount.getZone().getType());
+        }
 
-        return trip.getClient().getScoreToUse() >= discount.getMinScore() &&
-                trip.getAsset().getType().equals(discount.getAssetType()) &&
-                trip.getZone().getType().equals(discount.getZone().getType());
+        throw new RuntimeException("Invalid trip");
     }
 }

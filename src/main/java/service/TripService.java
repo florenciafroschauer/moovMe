@@ -3,6 +3,7 @@ package service;
 import model.*;
 import util.Fine;
 import util.Tariff;
+import util.ToPlan;
 
 import java.util.Date;
 
@@ -22,24 +23,33 @@ public class TripService {
     private Trip trip;
 
     public void setZone(Zone zone) {
-        trip.setZone(zone);
+        if (trip.getTripState().equals(new ToPlan())) {
+            trip.setZone(zone);
+        }
     }
 
     public void setAsset(Asset asset) {
-        trip.setAsset(asset);
-
+        if (trip.getTripState().equals(new ToPlan())) {
+            trip.setAsset(asset);
+        }
     }
 
     public void setTripTime(Date date) {
-        trip.setTripTime(date);
+        if (trip.getTripState().equals(new ToPlan())) {
+            trip.setTripTime(date);
+        }
     }
 
     public void setDiscount(Discount discount){
-        trip.setDiscount(discount);
+        if (trip.getTripState().equals(new ToPlan())) {
+            trip.setDiscount(discount);
+        }
     }
 
-    public void setTerminalToHandOver(Terminal terminal){
-        trip.setTerminalToHandOver(terminal);
+    public void setTerminalToHandOver(Terminal terminal) {
+        if (trip.getTripState().equals(new ToPlan())) {
+            trip.setTerminalToHandOver(terminal);
+        }
     }
 
     public double setTariff(Trip trip, Discount discount, Fine fine) {
@@ -52,7 +62,7 @@ public class TripService {
         return trip.getTariff().getTripValue();
     }
 
-    public Integer setScore(Trip trip){
+    public Integer setScore(Trip trip) {
         Integer score = (Integer)(trip.getTripTime().getMinutes()) *
                 trip.getAsset().getType().getScorePerMinute();
 

@@ -1,6 +1,8 @@
 package service;
 import model.*;
 import util.AssetType;
+import util.Finished;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,14 +45,15 @@ public class TerminalService {
         return assetList;
     }
 
-    public Integer reward(Trip trip) {
-        Date date = new Date();
+    public void reward(Trip trip) {
+        if (trip.getTripState().equals(new Finished())) {
 
-        if (date.compareTo(trip.getTripTime()) <= 0) {
-            Integer score = (int)(trip.getScore() * 0.2);
-            trip.setScore(score);
+            Date date = new Date();
+
+            if (date.compareTo(trip.getTripTime()) <= 0) {
+                Integer score = (int)(trip.getScore() * 0.2);
+                trip.setScore(score);
+            }
         }
-
-        return null;
     }
 }
