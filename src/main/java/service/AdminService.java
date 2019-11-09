@@ -32,6 +32,14 @@ public class AdminService {
     private PurchaseLotService lotService;
     private TerminalService terminalService;
 
+    public AdminService() {
+        this.blockedClients = new ArrayList<>();
+        this.clients  = new ArrayList<>();
+        this.terminals  = new ArrayList<>();
+        this.purchaseLots = new ArrayList<>();
+        this.discounts  = new ArrayList<>();
+    }
+
 
     public void blockClient(Client client) {
         for (Client client1: clients) {
@@ -82,7 +90,7 @@ public class AdminService {
 
     }
 
-    private Asset createAsset(Zone zone, AssetType assetType, Terminal terminal, PurchaseLot purchaseLot) {
+    public Asset createAsset(Zone zone, AssetType assetType, Terminal terminal, PurchaseLot purchaseLot) {
 
         Asset asset = new Asset(new KeyGenerator(), zone, assetType, terminal, purchaseLot);
         terminalService.receive(asset);
