@@ -26,6 +26,9 @@ public class LogInView {
 
             String registerOrLogin = scanner.nextLine();
 
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+
             if (registerOrLogin.equals("login")){
 
                 System.out.println("Please insert your nickname.");
@@ -35,6 +38,9 @@ public class LogInView {
                 String loginPassword = scanner.nextLine();
 
                 logInService.clientLogIn(loginNickname, loginPassword);
+
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
 
             }else if (registerOrLogin.equals("register")){
 
@@ -52,6 +58,9 @@ public class LogInView {
                 String registerNickname = scanner.nextLine();
 
                 signUpService.registerClient(registerUsername, registerPhoneNumber, registerNickname, registerPassword);
+
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
             }
         } else if(loginAsUser.equals("no")){
 
@@ -64,6 +73,9 @@ public class LogInView {
             String loginAdminPassword = scanner.nextLine();
 
             logInService.AdminLogIn(loginAdminNickname, loginAdminPassword);
+
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
 
         }
     }
