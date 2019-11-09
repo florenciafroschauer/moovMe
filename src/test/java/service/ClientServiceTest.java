@@ -1,13 +1,21 @@
 package service;
 
-import model.Client;
+import model.*;
 import org.junit.Test;
+import util.AssetType;
+import util.KeyGenerator;
+import util.Voucher;
 
 import static org.junit.Assert.*;
 
 public class ClientServiceTest {
     public Client client = new Client("Test", "Test", "111111", "Test");
     public ClientService clientService = new ClientService();
+    public Zone zone = new Zone("a", 1);
+    public AssetType assetType = new AssetType("a", 1, 1);
+    public Discount discount = new Discount(assetType, 10, zone, 10);
+    Voucher voucher = new Voucher("Test");
+
     @Test
     public void showScore() {
         clientService.showScore(client);
@@ -38,18 +46,21 @@ public class ClientServiceTest {
     }
 
     @Test
-    public void buyDiscounts(){//Hacerlo
-
+    public void buyDiscounts(){//COMPRO EL DESCUENTO???
+        clientService.buyDiscount(discount);
+        assertEquals();
     }
 
     @Test
-    public void useDiscounts(){//Hacerlo
-
+    public void useDiscounts(){
+        clientService.useDiscount(discount);
+        assertEquals(false, client.getDiscounts().contains(discount));
     }
 
     @Test
-    public void useVoucher(){//Hacerlo
-
+    public void useVoucher(){
+        clientService.useVoucher(voucher);
+        assertEquals(false, client.getVouchers().contains(voucher));
     }
 
 
