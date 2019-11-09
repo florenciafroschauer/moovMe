@@ -10,4 +10,8 @@ public class DiscountServiceTest {
     @Test
     public void showDiscounts() {
     }
+
+    public void canUse(){
+
+    }
 }
