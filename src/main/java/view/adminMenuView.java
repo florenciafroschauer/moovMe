@@ -22,7 +22,7 @@ public class adminMenuView{
         //  BLOQUEAR CLIENTE --------------------------------
 
     public void blockClientMenu() {
-            System.out.println("Inserte nombre del usuario a bloquear");
+            System.out.println("Insert which client to block.");
 
             for (int i = 0; i < clients.size(); i++) {
                 System.out.println(i + " " + clients.get(i).getNickname());
@@ -30,12 +30,15 @@ public class adminMenuView{
             int blockClient = scanner.nextInt();
 
             adminService.blockClient(clients.get(blockClient));
+
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         }
 
         // DESBLOQUEAR CLIENTE ----------------------------------
 
     public void unblockClientMenu(){
-        System.out.println("Inserte nombre del usuario a desbloquear");
+        System.out.println("Insert which client to unblock.");
 
         for (int i = 0; i < blockedClients.size(); i++) {
             System.out.println(i + " " + clients.get(i).getNickname());
@@ -44,13 +47,16 @@ public class adminMenuView{
         int unblockClient = scanner.nextInt();
 
         adminService.blockClient(clients.get(unblockClient));
+
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 
         //REPORT TRIP ---------------------------------------------
 
         public void reportTripMenu() {
-            System.out.println("Inserte viaje a reportar.");
+            System.out.println("Insert which trip to report.");
 
             for (int i = 0; i < trips.size(); i++) {
                 System.out.println(i + " " + trips.get(i).getAsset() + " " + trips.get(i).getZone() +
@@ -58,21 +64,24 @@ public class adminMenuView{
             }
             int reportTripNum = scanner.nextInt();
 
-            System.out.println("Inserte terminal.");
+            System.out.println("Insert terminal.");
 
             int reportTerminal = scanner.nextInt();
 
-            System.out.println("Inserte la multa que recivira.");
+            System.out.println("Insert the amount of the fine.");
 
             int reportFine = scanner.nextInt();
             adminService.reportTrip(trips.get(reportTripNum), terminals.get(reportTerminal), reportFine);
+
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
 
         }
             // CREATE TERMINAL -----------------------------------------
 
     public void createTerminalMenu() {
 
-        System.out.println("Inserte zona de la terminal nueva.");
+        System.out.println("Insert in which zone it will be created.");
 
         for (int i = 0; i < zones.size(); i++) {
             System.out.println(i + " " + zones.get(i).getType());
@@ -80,24 +89,27 @@ public class adminMenuView{
 
         int newTerminalZone = scanner.nextInt();
 
-        System.out.println("Inserte nombre de la terminal nueva.");
+        System.out.println("Insert name of the new terminal.");
 
         String newTerminalName = scanner.nextLine();
 
         adminService.createTerminal(zones.get(newTerminalZone), newTerminalName);
+
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
             // NEW PURCHASE LOT -----------------------------
 
     public void newParchuseLot(){
-        System.out.println("Inserte zona.");
+        System.out.println("Insert zone .");
         for(int i = 0; i < zones.size(); i++) {
             System.out.println("Zona  " + i + "  " + zones.get(i).getType());
         }
 
         int newParchuseLotZone = scanner.nextInt();
 
-        System.out.println("Inserte tipo de activo.");
+        System.out.println("Insert.asset type.");
 
         for(int i = 0; i < assetTypes.size(); i++) {
             System.out.println("Asset  " + i + "  " + assetTypes.get(i));
@@ -105,7 +117,7 @@ public class adminMenuView{
 
         int newParchuseLotAsset = scanner.nextInt();
 
-        System.out.println("Inserte la terminal.");
+        System.out.println("Insert in which terminal they will be delivered.");
 
         for(int i = 0; i < terminals.size(); i++) {
             System.out.println("Terminal  " + i + "  " + terminals.get(i));
@@ -113,11 +125,14 @@ public class adminMenuView{
 
         int newParchuseLotTerminal = scanner.nextInt();
 
-        System.out.println("Inserte cantidad a comprar.");
+        System.out.println("Insert amount to buy.");
 
         int newParchuseLotLot = scanner.nextInt();
 
         adminService.createPurchaseLot(zones.get(newParchuseLotZone),assetTypes.get(newParchuseLotAsset), terminals.get(newParchuseLotTerminal), newParchuseLotLot);
+
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
 
