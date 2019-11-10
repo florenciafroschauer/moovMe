@@ -21,6 +21,8 @@ import util.ToPlan;
 public class TripService {
     private Trip trip;
 
+    // test
+
     public TripService(Trip trip) {
         this.trip = trip;
     }
