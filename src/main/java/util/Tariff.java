@@ -19,7 +19,7 @@ public class Tariff {
     }
 
     public double calculateTariff(Trip trip, Discount discount, Fine fine) {
-        tripValue = trip.getTripTime().getMinutes() *
+        tripValue = trip.getTripTime().getMinute() *
                 trip.getAsset().getType().getPricePerMinute();
 
         setTripValue(tripValue * trip.getZone().getRate());
