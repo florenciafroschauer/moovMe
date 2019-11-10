@@ -16,4 +16,8 @@ public class Voucher {
     public Integer getPercent() {
         return percent;
     }
+
+    public boolean equals(Voucher voucher) {
+        return this.getDescription().equals(voucher.getDescription());
+    }
 }

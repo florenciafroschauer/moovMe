@@ -43,4 +43,8 @@ public class TerminalService {
             }
         }
     }
+
+    public List<Terminal> getTerminals() {
+        return terminals;
+    }
 }

@@ -15,4 +15,8 @@ public class PurchaseLotService {
             assetRepository.create(asset);
         }
     }
+
+    public AssetRepository getAssetRepository() {
+        return assetRepository;
+    }
 }

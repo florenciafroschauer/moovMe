@@ -4,6 +4,8 @@ import model.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import util.AssetType;
+import util.Finished;
+import util.Hour;
 
 import static org.junit.Assert.*;
 
@@ -17,6 +19,9 @@ public class TerminalServiceTest {
     Trip trip = new Trip(client);
     AssetType assetType = new AssetType("test", 1, 1);
     PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 1);
+    Hour hour;
+    Hour hour2;
+    Finished finished = new Finished(trip);
 
     Asset asset = new Asset(zone, assetType, terminal, purchaseLot);
 
@@ -24,6 +29,7 @@ public class TerminalServiceTest {
     @Test
     public void showAssets() {
         terminal.getAssets().add(asset);
+        terminalService.getTerminals().add(terminal);
         assertEquals(terminal.getAssets(), terminalService.showAssets(zone));
     }
 
@@ -36,8 +42,12 @@ public class TerminalServiceTest {
 
     @Test
     public void reward() {
-        Integer clientInt = client.getAccumulatedScore() + trip.getScore();
-        terminalService.reward(trip);
-        assertEquals(clientInt, client.getAccumulatedScore());
+        hour2 = new Hour(1,1);
+        trip.setTripState(finished);
+        trip.setTripTime(hour2);
+        hour = new Hour(0, 0);
+        Integer clientInt = trip.getClient().getScoreToUse() + trip.getScore();
+        terminalService.reward(trip, hour);
+        assertEquals(clientInt, trip.getClient().getScoreToUse());
     }
 }

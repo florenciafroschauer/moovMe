@@ -55,4 +55,12 @@ public class LogInService {
 
         return "Successful log in!";
     }
+
+    public List<Client> getSignedUpClients() {
+        return signedUpClients;
+    }
+
+    public List<Admin> getSignedUpAdmins() {
+        return signedUpAdmins;
+    }
 }

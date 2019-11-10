@@ -46,8 +46,7 @@ public class ScoringService {
         return new Voucher(description);
     }
 
-    public void rewardBestThree(Date date) {
-        Voucher voucher = createVoucher("Best in the area: 50% discount");
+    public void rewardBestThree(Date date, Voucher voucher) {
 
         if (date.getDay() >= 28) {
             scoring.getLeaderBoard().get(0).addVoucher(voucher);

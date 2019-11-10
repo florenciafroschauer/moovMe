@@ -3,8 +3,7 @@ package service;
 import model.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import util.AssetType;
-import util.KeyGenerator;
+import util.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,28 +11,33 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class DiscountServiceTest {
-    Client client = new Client("Test", "Test", 111111, "Test");
-    Trip trip = new Trip(client);
-    AssetType asettipe = new AssetType("test", 1, 20);
-    Zone zone = new Zone("Test", 1);
-    Discount descuento = new Discount(asettipe, 5, zone, 5);
-    KeyGenerator keyGenerator = new KeyGenerator();
-    Zone zone1 = new Zone("Test", 1);
-    AssetType assetType = new AssetType("test", 1, 20);
-    Terminal terminal = new Terminal(zone1, "Test");
-    PurchaseLot purchaseLot = new PurchaseLot( zone1, assetType, 5);
-    KeyGenerator keyGenerator1 = new KeyGenerator();
-    ArrayList<Discount> discounts = new ArrayList<>();
-    Asset asset = new Asset(zone1, assetType, terminal, purchaseLot);
-    DiscountService discountService = new DiscountService(descuento);
+    public Client client = new Client("Test", "Test", 111111, "Test");
+    public Trip trip = new Trip(client);
+    public ArrayList<Discount> discounts = new ArrayList<>();
+    public Zone zone = new Zone("CABA", 1);
+    public Terminal terminal = new Terminal(zone, "TerminalPepito");
+    public AssetType assetType = new AssetType("Bici", 1, 2);
+    public Discount discount = new Discount(assetType, 20, zone, 1);
+    public ToPlan toPlan = new ToPlan(trip);
+    public Zone zone2 = new Zone("Error", 1);
+    public PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 12);
+    public Asset asset = new Asset(zone, assetType, terminal, purchaseLot);
+    public DiscountService discountService = new DiscountService();
+
+
     @Test
     public void showDiscounts() {
         assertEquals(discounts, discountService.showDiscounts(trip));
     }
 
+    @Test
     public void canUse() {
-        client.sumScore(10);
+        client.addZone(zone);
+        client.sumScore(300);
+        trip.setZone(zone);
+        trip.setDiscount(discount);
         trip.setAsset(asset);
-        assertEquals(true, discountService.canUse(trip));
+        trip.setTripState(toPlan);
+        assertTrue(discountService.canUse(client,asset,zone,discount));
     }
 }

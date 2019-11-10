@@ -39,4 +39,8 @@ public class SignUpService {
 
         return "Registered successfully.";
     }
+
+    public List<Client> getSignedUpClients() {
+        return signedUpClients;
+    }
 }
