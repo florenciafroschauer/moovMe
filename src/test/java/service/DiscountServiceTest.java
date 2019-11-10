@@ -28,14 +28,12 @@ public class DiscountServiceTest {
     DiscountService discountService = new DiscountService(descuento);
     @Test
     public void showDiscounts() {
-        discountService.showDiscounts(trip);
         assertEquals(discounts, discountService.showDiscounts(trip));
     }
 
     public void canUse() {
         client.sumScore(10);
         trip.setAsset(asset);
-        discountService.canUse(trip);
         assertEquals(true, discountService.canUse(trip));
     }
 }

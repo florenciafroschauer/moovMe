@@ -11,12 +11,15 @@ public class LogInServiceTest {
 
     @Test
     public void clientLogIn() {
-        logInService.clientLogIn("test", "test");
+        assertEquals("Invalid nickname or password.", logInService.clientLogIn("test", "test"));
+        assertEquals("Successful log in!", logInService.clientLogIn("test", "test"));
+
     }
 
     @Test
     public void adminLogIn() {
-        logInService.AdminLogIn("test", "test");
+        assertEquals("Invalid username or password.",logInService.AdminLogIn("test", "test"));
+        assertEquals("Successful log in!",logInService.AdminLogIn("test", "test"));
 
     }
 }
