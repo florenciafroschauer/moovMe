@@ -57,7 +57,7 @@ public class TripService {
         }
     }
 
-    public double setTariff(Trip trip, Discount discount, Fine fine) {
+    public double setTariff( Discount discount, Fine fine) {
         double tripValue = trip.getTariff().calculateTariff(trip, discount, fine);
 
         Tariff tariff = new Tariff(tripValue);
@@ -67,8 +67,8 @@ public class TripService {
         return trip.getTariff().getTripValue();
     }
 
-    public Integer setScore(Trip trip) {
-        Integer score = (Integer)(trip.getTripTime().getMinute()) *
+    public Integer setScore() {
+        Integer score = trip.getTripTime().getMinute() *
                 trip.getAsset().getType().getScorePerMinute();
 
         trip.setScore(score);

@@ -18,7 +18,7 @@ public class Trip implements TripI, Entity {
     public Trip(Client client) {
         this.key = new KeyGenerator().generateKey();
         this.client = client;
-        score = 0;
+        this.score = 0;
     }
 
     @Override
