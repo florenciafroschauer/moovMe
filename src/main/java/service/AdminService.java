@@ -3,12 +3,8 @@ package service;
 import model.*;
 import repository.*;
 import util.AssetType;
-import util.Entity;
 import util.Fine;
 import util.InProgress;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Bloquear clientes.
@@ -26,9 +22,8 @@ public class AdminService {
     private PurchaseLotRepository purchaseLotRepository = new PurchaseLotRepository();
     private DiscountRepository discountRepository = new DiscountRepository();
     private TerminalRepository terminalRepository = new TerminalRepository();
-    private PurchaseLotService lotService;
-    private TerminalService terminalService;
-
+    private PurchaseLotService lotService = new PurchaseLotService();
+    private TerminalService terminalService = new TerminalService();
 
     public void blockClient(Client aClient) {
 

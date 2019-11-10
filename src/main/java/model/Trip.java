@@ -1,11 +1,6 @@
 package model;
 
-import util.Entity;
-import util.KeyGenerator;
-import util.Tariff;
-import util.TripState;
-
-import java.util.Date;
+import util.*;
 
 public class Trip implements TripI, Entity {
 
@@ -13,7 +8,7 @@ public class Trip implements TripI, Entity {
     private final Client client;
     private Asset asset;
     private Zone zone;
-    private Date tripTime;
+    private Hour tripTime;
     private Discount discount;
     private Terminal toHandOver;
     private Tariff tariff;
@@ -42,7 +37,7 @@ public class Trip implements TripI, Entity {
     }
 
     @Override
-    public void setTripTime(Date tripTime) {
+    public void setTripTime(Hour tripTime) {
         this.tripTime = tripTime;
     }
 
@@ -87,7 +82,7 @@ public class Trip implements TripI, Entity {
     }
 
     @Override
-    public Date getTripTime() {
+    public Hour getTripTime() {
         return tripTime;
     }
 

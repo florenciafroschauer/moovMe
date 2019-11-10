@@ -3,9 +3,8 @@ package service;
 import model.*;
 import repository.AssetRepository;
 import repository.TerminalRepository;
-import util.AssetType;
 import util.Finished;
-import java.util.Date;
+import util.Hour;
 import java.util.List;
 
 /**
@@ -15,13 +14,12 @@ import java.util.List;
 
 public class TerminalService {
 
-    private AssetRepository assetRepository = new AssetRepository();
     private TerminalRepository terminalRepository = new TerminalRepository();
 
     private List<Terminal> terminals = terminalRepository.findAll();
 
     public List<Asset> showAssets(Zone zone) {
-        Terminal terminal = terminalRepository.searchByZone(zone);
+        Terminal terminal = terminalRepository.searchOneByZone(zone);
 
         return terminal.getAssets();
     }
@@ -35,11 +33,10 @@ public class TerminalService {
         }
     }
 
-    public void reward(Trip trip) {
+    public void reward(Trip trip, Hour hour) {
         if (trip.getTripState().equals(new Finished(trip))) {
-            Date date = new Date();
 
-            if (date.compareTo(trip.getTripTime()) <= 0) {
+            if (hour.compareTo(trip.getTripTime()) <= 0) {
                 Integer score = (int)(trip.getScore() * 0.2);
                 trip.setScore(score);
                 trip.getClient().sumScore(score);

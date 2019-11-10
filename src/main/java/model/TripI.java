@@ -1,9 +1,8 @@
 package model;
 
+import util.Hour;
 import util.Tariff;
 import util.TripState;
-
-import java.util.Date;
 
 public interface TripI {
 
@@ -11,7 +10,7 @@ public interface TripI {
 
     void setZone(Zone zone);
 
-    void setTripTime(Date tripTime);
+    void setTripTime(Hour tripTime);
 
     void setDiscount(Discount discount);
 
@@ -29,7 +28,7 @@ public interface TripI {
 
     Zone getZone();
 
-    Date getTripTime();
+    Hour getTripTime();
 
     Discount getDiscount();
 
