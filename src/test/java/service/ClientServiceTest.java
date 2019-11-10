@@ -48,6 +48,7 @@ public class ClientServiceTest {
     @Test
     public void buyDiscounts(){//COMPRO EL DESCUENTO???
         clientService.buyDiscount(discount);
+        assertTrue(client.getDiscounts().contains(discount));
     }
 
     @Test
