@@ -6,23 +6,29 @@ import repository.ClientRepository;
 import repository.TerminalRepository;
 import util.AssetType;
 import util.Fine;
+import util.InProgress;
 import util.KeyGenerator;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 public class AdminServiceTest {
 
     ClientRepository clientRepository = new ClientRepository();
     TerminalRepository terminalRepository = new TerminalRepository();
+
+
     AdminService adminService = new AdminService();
     Client client = new Client("Test", "Test", 111111, "Test");
+    Zone zone = new Zone("CABA", 1);
+    Terminal terminal = new Terminal(zone, "Hola");
+    AssetType assetType = new AssetType("moto", 1, 1);
+    PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 1);
+    Asset asset = new Asset(zone, assetType, terminal,purchaseLot);
+
+
     Trip trip = new Trip(client);
-    Zone zone = new Zone("Test", 1);
-    Terminal terminal = new Terminal(zone, "Test");
-    AssetType assetType = new AssetType("Test", 200, 200);
-    PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 12);
-    Asset asset = new Asset(zone, assetType, terminal, purchaseLot);
+    InProgress inProgress = new InProgress(trip);
+    Discount discount = new Discount(assetType, 1, zone, 1);
 
     Client client1 = new Client("Test1", "Test1", 1111111, "Test1");
     Client client2 = new Client("Test2", "Test2", 1111112, "Test2");
@@ -60,69 +66,30 @@ public class AdminServiceTest {
 
     @Test
     public void reportTrip() {
-        clientRepository.create(client);
-        clientRepository.create(client1);
-        clientRepository.create(client2);
-        clientRepository.create(client3);
-
-        terminalRepository.create(terminal);
-
-
-        adminService.reportTrip(trip, terminal, 1);
-        assertSame(true, client.isBlocked());
-        assertSame(new Fine(zone, 1), adminService.reportTrip(trip,terminal,1));
-        assertSame(terminal, trip.getAsset().getTerminal());
+        trip.setZone(zone);
+        trip.setTripState(inProgress);
+        Fine fine = new Fine(trip.getZone(), 1);
+        assertTrue(fine.equals(adminService.reportTrip(trip, terminal, 1)));
     }
 
     @Test
     public void createAsset(){
-        clientRepository.create(client);
-        clientRepository.create(client1);
-        clientRepository.create(client2);
-        clientRepository.create(client3);
-
-        terminalRepository.create(terminal);
-
-        assertSame(new AssetType("Test", 200, 200), adminService.createAsset(zone, assetType, terminal, purchaseLot));
-        assertSame(terminal, asset.getTerminal());
+        assertTrue(asset.equals(adminService.createAsset(zone, assetType, terminal, purchaseLot)));
     }
 
     @Test
     public void createDiscount(){
-        clientRepository.create(client);
-        clientRepository.create(client1);
-        clientRepository.create(client2);
-        clientRepository.create(client3);
 
-        terminalRepository.create(terminal);
-
-        adminService.createDiscount(assetType, 100, zone, 100);
-        assertSame(new Discount(assetType, 100, zone, 100), adminService.createDiscount(assetType, 100, zone, 100));
+        assertTrue(discount.equals(adminService.createDiscount(assetType, 1,zone, 1)));
     }
 
     @Test
     public void createTerminal() {
-        clientRepository.create(client);
-        clientRepository.create(client1);
-        clientRepository.create(client2);
-        clientRepository.create(client3);
-
-        terminalRepository.create(terminal);
-
-        adminService.createTerminal(zone, "Test");
-        assertSame(new Terminal(zone, "Test"), adminService.createTerminal(zone, "Test"));
+        assertTrue(terminal.equals(adminService.createTerminal(zone, "Hola")));
     }
 
     @Test
     public void createPurchaseLot() {
-        clientRepository.create(client);
-        clientRepository.create(client1);
-        clientRepository.create(client2);
-        clientRepository.create(client3);
-
-        terminalRepository.create(terminal);
-
-        adminService.createPurchaseLot(zone, assetType,terminal, 1);
-        assertSame(new PurchaseLot(zone, assetType, 12), adminService.createPurchaseLot(zone, assetType, terminal, 1));
+        assertTrue(purchaseLot.equals(adminService.createPurchaseLot(zone, assetType, terminal, 1)));
         }
     }

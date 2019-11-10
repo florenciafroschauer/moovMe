@@ -37,4 +37,11 @@ public class PurchaseLot implements Entity {
     public int getLot() {
         return lot;
     }
+
+
+    public boolean equals(PurchaseLot purchaseLot){
+        return this.getZone().equals(purchaseLot.getZone()) &&
+                this.getAssetType().equals(purchaseLot.getAssetType()) &&
+                (this.getLot() == purchaseLot.getLot());
+    }
 }

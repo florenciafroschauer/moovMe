@@ -57,4 +57,8 @@ public class Asset implements AssetI, Entity {
     public void setTerminalToHandOver(Terminal terminal) {
         this.terminal = terminal;
     }
+
+    public boolean equals(Asset asset) {
+        return this.getZone().equals(asset.getZone()) && this.getType().equals(asset.getType()) && this.getTerminal().equals(asset.getTerminal()) && this.getLot().equals(asset.getLot());
+    }
 }

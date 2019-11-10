@@ -40,4 +40,10 @@ public class Discount implements Entity {
     public int getPercent() {
         return percent;
     }
+
+    public boolean equals(Discount discount) {
+        return this.getAssetType().equals(discount.getAssetType())
+                && this.getMinScore().equals(discount.getMinScore())
+                && this.getZone().equals(discount.getZone()) && this.getPercent() == discount.getPercent();
+    }
 }

@@ -39,4 +39,9 @@ public class Terminal implements Entity {
     public List<Asset> getAssets() {
         return assets;
     }
+
+
+    public boolean equals(Terminal terminal){
+        return getName().equals(terminal.getName()) && this.showZone().equals(terminal.showZone());
+    }
 }
