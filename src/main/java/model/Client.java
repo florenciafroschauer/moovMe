@@ -17,6 +17,8 @@ public class Client extends User implements ClientI {
 
     public Client(String username, String password, Integer phoneNumber, String nickname) {
         super(username, password);
+        this.accumulatedScore = 0;
+        this.scoreToUse = 0;
         this.phoneNumber = phoneNumber;
         this.nickname = nickname;
         this.zones = new ArrayList<>();

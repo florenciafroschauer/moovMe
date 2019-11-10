@@ -20,21 +20,24 @@ public class TerminalServiceTest {
 
     Asset asset = new Asset(zone, assetType, terminal, purchaseLot);
 
+
     @Test
     public void showAssets() {
+        terminal.getAssets().add(asset);
         assertEquals(terminal.getAssets(), terminalService.showAssets(zone));
     }
 
     @Test
     public void receive() {
+        terminal.getAssets().add(asset);
         terminalService.receive(asset);
         assertTrue(terminal.getAssets().contains(asset));
     }
 
     @Test
     public void reward() {
-        Integer clientInt = client.getAccumulatedScore();
-        terminalService.showAssets(zone);
+        Integer clientInt = client.getAccumulatedScore() + trip.getScore();
+        terminalService.reward(trip);
         assertEquals(clientInt, client.getAccumulatedScore());
     }
 }

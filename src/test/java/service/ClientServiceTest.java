@@ -6,24 +6,32 @@ import util.AssetType;
 import util.KeyGenerator;
 import util.Voucher;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class ClientServiceTest {
-    public Client client = new Client("Test", "Test", 111111, "Test");
+
+
+    public Client client = new Client("Test", "Test", 1, "Test");
     public ClientService clientService = new ClientService(client);
-    public Zone zone = new Zone("a", 1);
-    public AssetType assetType = new AssetType("a", 1, 1);
-    public Discount discount = new Discount(assetType, 10, zone, 10);
-    Voucher voucher = new Voucher("Test");
+    public Zone zone = new Zone("CABA", 25);
+    public AssetType assetType = new AssetType("Bici", 1, 20);
+    public Discount discount = new Discount(assetType, 20, zone, 10);
+    Voucher voucher = new Voucher("VoucherTest");
+    public List<Discount>discounts = new ArrayList<>();
 
     @Test
     public void showScore() {
-        clientService.showScore(client);
-        assertEquals(client.getAccumulatedScore(), clientService.showScore(client));
+        client.sumScore(500);
+        Integer clientInt = client.getAccumulatedScore();
+        assertEquals(clientInt, clientService.showScore(client));
     }
 
     @Test
     public void showDiscounts() {
+        client.getDiscounts().add(discount);
         clientService.showDiscounts(client);
         assertEquals(client.getDiscounts(), clientService.showDiscounts(client));
     }
