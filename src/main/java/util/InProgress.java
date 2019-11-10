@@ -3,6 +3,7 @@ package util;
 import model.Trip;
 
 public class InProgress extends TripState {
+
     private Trip trip;
 
     public InProgress(Trip trip) {

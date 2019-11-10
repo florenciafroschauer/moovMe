@@ -1,6 +1,5 @@
 package service;
 
-
 import model.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +7,6 @@ import org.junit.runner.RunWith;
 import util.*;
 
 import static org.junit.Assert.*;
-
 
 public class TripServiceTest {
     private Client client = new Client("Test", "Test", 111111, "Test");
@@ -69,8 +67,6 @@ public class TripServiceTest {
         trip.setZone(zone);
         double tripValue = trip.getTariff().calculateTariff(trip, discount, fine);
         assertEquals(tripValue,tripService.setTariff(discount, fine), 0.01);
-
-
     }
 
     @Test

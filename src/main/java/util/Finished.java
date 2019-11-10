@@ -3,6 +3,7 @@ package util;
 import model.Trip;
 
 public class Finished extends TripState {
+
     private Trip trip;
 
     public Finished(Trip trip) {

@@ -3,6 +3,7 @@ package util;
 import model.Trip;
 
 public class ToPlan extends TripState {
+
     private Trip trip;
 
     public ToPlan(Trip trip) {

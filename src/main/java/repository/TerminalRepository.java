@@ -2,7 +2,6 @@ package repository;
 
 import model.Terminal;
 import model.Zone;
-
 import java.util.ArrayList;
 import java.util.List;
 

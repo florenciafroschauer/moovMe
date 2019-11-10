@@ -1,7 +1,6 @@
 package service;
 
 import model.*;
-import repository.AssetRepository;
 import repository.TerminalRepository;
 import util.Finished;
 import util.Hour;

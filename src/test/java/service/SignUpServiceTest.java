@@ -2,13 +2,11 @@ package service;
 
 import model.Client;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class SignUpServiceTest {
-    SignUpService signUpService = new SignUpService();
-    public Client client = new Client("Hola", "Hola", 123, "Hola");
-
+    private SignUpService signUpService = new SignUpService();
+    private Client client = new Client("Hola", "Hola", 123, "Hola");
 
     @Test
     public void signUp() {
@@ -16,7 +14,6 @@ public class SignUpServiceTest {
         assertEquals("Username and password validated.", signUpService.signUp("test", 1));
         assertEquals("Username or phone number already exists.", signUpService.signUp("Hola", 123));
     }
-
 
     @Test
     public void registerClient(){

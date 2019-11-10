@@ -1,6 +1,6 @@
 package model;
-import util.Voucher;
 
+import util.Voucher;
 import java.util.ArrayList;
 import java.util.List;
 

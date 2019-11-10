@@ -3,6 +3,7 @@ package util;
 import model.Zone;
 
 public class Fine {
+
     private Zone zone;
     private Integer fineValue;
 

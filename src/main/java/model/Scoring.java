@@ -1,4 +1,5 @@
 package model;
+
 import util.Entity;
 import util.KeyGenerator;
 import java.util.ArrayList;

@@ -1,25 +1,18 @@
 package service;
 
-
 import model.Admin;
 import model.Client;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import repository.ClientRepository;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class LogInServiceTest {
-    LogInService logInService = new LogInService();
-    ClientRepository clientRepository = new ClientRepository();
-    Client client = new Client("Hola", "Hola", 12, "Hola");
-    Client client1 = new Client("Hola2", "Hola2", 123, "Hola2");
-
-    Admin admin = new Admin("Hola", "Hola");
-    Admin admin2 = new Admin("Hola2", "Hola2");
+    private LogInService logInService = new LogInService();
+    private ClientRepository clientRepository = new ClientRepository();
+    private Client client = new Client("Hola", "Hola", 12, "Hola");
+    private Client client1 = new Client("Hola2", "Hola2", 123, "Hola2");
+    private Admin admin = new Admin("Hola", "Hola");
+    private Admin admin2 = new Admin("Hola2", "Hola2");
 
     @Test
     public void clientLogIn() {

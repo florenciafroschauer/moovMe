@@ -1,6 +1,7 @@
 package util;
 
 public class Voucher {
+
     private final String description;
     private final Integer percent;
 

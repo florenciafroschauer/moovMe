@@ -2,27 +2,23 @@ package service;
 
 import model.*;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import util.*;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class DiscountServiceTest {
-    public Client client = new Client("Test", "Test", 111111, "Test");
-    public Trip trip = new Trip(client);
-    public ArrayList<Discount> discounts = new ArrayList<>();
-    public Zone zone = new Zone("CABA", 1);
-    public Terminal terminal = new Terminal(zone, "TerminalPepito");
-    public AssetType assetType = new AssetType("Bici", 1, 2);
-    public Discount discount = new Discount(assetType, 20, zone, 1);
-    public ToPlan toPlan = new ToPlan(trip);
-    public Zone zone2 = new Zone("Error", 1);
-    public PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 12);
-    public Asset asset = new Asset(zone, assetType, terminal, purchaseLot);
-    public DiscountService discountService = new DiscountService();
+    private Client client = new Client("Test", "Test", 111111, "Test");
+    private Trip trip = new Trip(client);
+    private ArrayList<Discount> discounts = new ArrayList<>();
+    private Zone zone = new Zone("CABA", 1);
+    private Terminal terminal = new Terminal(zone, "TerminalPepito");
+    private AssetType assetType = new AssetType("Bici", 1, 2);
+    private Discount discount = new Discount(assetType, 20, zone, 1);
+    private ToPlan toPlan = new ToPlan(trip);
+    private Zone zone2 = new Zone("Error", 1);
+    private PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 12);
+    private Asset asset = new Asset(zone, assetType, terminal, purchaseLot);
+    private DiscountService discountService = new DiscountService();
 
 
     @Test

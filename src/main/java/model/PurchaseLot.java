@@ -4,9 +4,6 @@ import util.AssetType;
 import util.Entity;
 import util.KeyGenerator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PurchaseLot implements Entity {
 
     private final Long key;
