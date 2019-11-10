@@ -2,6 +2,7 @@ package service;
 
 import model.*;
 import util.Fine;
+import util.Hour;
 import util.Tariff;
 import util.ToPlan;
 import java.util.Date;
@@ -25,6 +26,11 @@ public class TripService {
         this.trip = trip;
     }
 
+    public void setHour(Hour hour){
+        if (trip.getTripState().equals(new ToPlan(trip))) {
+            trip.setHour(hour);
+        }
+    }
     public void setZone(Zone zone) {
         if (trip.getTripState().equals(new ToPlan(trip))) {
             trip.setZone(zone);
