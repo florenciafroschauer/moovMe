@@ -10,15 +10,16 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 
 public class AdminServiceTest {
+
+
     AdminService adminService = new AdminService();
-    Client client = new Client("Test", "Test", "111111", "Test");
+    Client client = new Client("Test", "Test", 111111, "Test");
     Trip trip = new Trip(client);
     Zone zone = new Zone("Test", 1);
     Terminal terminal = new Terminal(zone, "Test");
-    KeyGenerator keyGenerator = new KeyGenerator();
     AssetType assetType = new AssetType("Test", 200, 200);
-    PurchaseLot purchaseLot = new PurchaseLot(keyGenerator, zone, assetType, 12);
-    Asset asset = new Asset(keyGenerator, zone, assetType, terminal, purchaseLot);
+    PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 12);
+    Asset asset = new Asset(zone, assetType, terminal, purchaseLot);
 
 
 
@@ -66,7 +67,7 @@ public class AdminServiceTest {
     @Test
     public void createPurchaseLot() {
         adminService.createPurchaseLot(zone, assetType,terminal, 1);
-        assertSame(new PurchaseLot(keyGenerator, zone, assetType, 12), adminService.createPurchaseLot(zone, assetType, terminal, 1));
+        assertSame(new PurchaseLot(zone, assetType, 12), adminService.createPurchaseLot(zone, assetType, terminal, 1));
         }
     }
 

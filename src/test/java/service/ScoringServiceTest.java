@@ -14,12 +14,13 @@ import java.util.Date;
 import static org.junit.Assert.*;
 
 public class ScoringServiceTest {
-
-    ScoringService scoringService = new ScoringService();
-    List<String>nickNamesTest;
     Zone zone = new Zone("Test", 1);
+    Scoring scoring = new Scoring(zone);
+    ScoringService scoringService = new ScoringService(scoring);
+    List<String>nickNamesTest;
 
-    List<Client>clients = new List<>()://SOLUCIONAR
+
+    List<Client>clients = new List<>();//SOLUCIONAR
 
     Scoring scoring = new Scoring(clients, zone);
     Voucher voucher = new Voucher("Test");

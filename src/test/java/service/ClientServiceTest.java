@@ -9,8 +9,8 @@ import util.Voucher;
 import static org.junit.Assert.*;
 
 public class ClientServiceTest {
-    public Client client = new Client("Test", "Test", "111111", "Test");
-    public ClientService clientService = new ClientService();
+    public Client client = new Client("Test", "Test", 111111, "Test");
+    public ClientService clientService = new ClientService(client);
     public Zone zone = new Zone("a", 1);
     public AssetType assetType = new AssetType("a", 1, 1);
     public Discount discount = new Discount(assetType, 10, zone, 10);
@@ -48,7 +48,6 @@ public class ClientServiceTest {
     @Test
     public void buyDiscounts(){//COMPRO EL DESCUENTO???
         clientService.buyDiscount(discount);
-        assertEquals();
     }
 
     @Test
