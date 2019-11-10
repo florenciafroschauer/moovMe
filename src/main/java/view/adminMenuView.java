@@ -10,14 +10,14 @@ import java.util.Scanner;
 public class adminMenuView{
 
 
-        List<Client> clients = new ArrayList<>();
-        List<Client> blockedClients = new ArrayList<>();
-        List<Trip> trips = new ArrayList<>();
-        List<Terminal> terminals = new ArrayList<>();
-        List<Zone> zones = new ArrayList<>();
-        List<AssetType> assetTypes = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        AdminService adminService = new AdminService();
+        private List<Client> clients = new ArrayList<>();
+        private List<Client> blockedClients = new ArrayList<>();
+        private List<Trip> trips = new ArrayList<>();
+        private List<Terminal> terminals = new ArrayList<>();
+        private List<Zone> zones = new ArrayList<>();
+        private List<AssetType> assetTypes = new ArrayList<>();
+        private Scanner scanner = new Scanner(System.in);
+        private AdminService adminService = new AdminService();
 
         //  BLOQUEAR CLIENTE --------------------------------
 
