@@ -1,7 +1,6 @@
 package service;
 
-import model.Discount;
-import model.Trip;
+import model.*;
 import repository.DiscountRepository;
 import util.ToPlan;
 import java.util.ArrayList;
@@ -15,17 +14,12 @@ public class DiscountService {
 
     private DiscountRepository discountRepository = new DiscountRepository();
     private List<Discount> discounts = discountRepository.findAll();
-    private Discount discount;
-
-    public DiscountService(Discount discount) {
-        this.discount = discount;
-    }
 
     public List<Discount> showDiscounts(Trip trip) {
         List<Discount> discountsCanUse = new ArrayList<>();
 
         for (Discount discount: discounts) {
-            if (canUse(trip)) {
+            if (canUse(trip.getClient(), trip.getAsset(), trip.getZone(), discount)) {
                 discountsCanUse.add(discount);
             }
         }
@@ -33,13 +27,9 @@ public class DiscountService {
         return discountsCanUse;
     }
 
-    public boolean canUse(Trip trip) {
-        if (trip.getTripState().equals(new ToPlan(trip))) {
-            return trip.getClient().getScoreToUse() >= discount.getMinScore() &&
-                    trip.getAsset().getType().equals(discount.getAssetType()) &&
-                    trip.getZone().equals(discount.getZone());
-        }
-
-        return false;
+    public boolean canUse(Client client, Asset asset, Zone zone, Discount discount) {
+            return client.getScoreToUse() >= discount.getMinScore() &&
+                    asset.getType().equals(discount.getAssetType()) &&
+                    zone.equals(discount.getZone());
     }
 }
