@@ -1,9 +1,10 @@
 package service;
+
 import model.*;
+import repository.AssetRepository;
+import repository.TerminalRepository;
 import util.AssetType;
 import util.Finished;
-
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,15 +14,16 @@ import java.util.List;
  */
 
 public class TerminalService {
-    private List<Asset> assets; // persistir
-    private List<Terminal> terminals; // persistir
 
-    public Asset deliverAsset(AssetType assetType) {
-        for (Asset asset: assets) {
-            if (asset.getType().equals(assetType)) {
-                return asset;
-            }
-        } return null;
+    private AssetRepository assetRepository = new AssetRepository();
+    private TerminalRepository terminalRepository = new TerminalRepository();
+
+    private List<Terminal> terminals = terminalRepository.findAll();
+
+    public List<Asset> showAssets(Zone zone) {
+        Terminal terminal = terminalRepository.searchByZone(zone);
+
+        return terminal.getAssets();
     }
 
     public void receive(Asset anAsset) {
@@ -33,21 +35,8 @@ public class TerminalService {
         }
     }
 
-    public List<Asset> showAssets(Zone zone) {
-        List<Asset> assetList = new ArrayList<>();
-
-        for (Asset asset: assets) {
-            if (asset.getZone().equals(zone)) {
-                assetList.add(asset);
-            }
-        }
-
-        return assetList;
-    }
-
     public void reward(Trip trip) {
-        if (trip.getTripState().equals(new Finished())) {
-
+        if (trip.getTripState().equals(new Finished(trip))) {
             Date date = new Date();
 
             if (date.compareTo(trip.getTripTime()) <= 0) {

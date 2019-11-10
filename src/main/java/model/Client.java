@@ -1,10 +1,12 @@
 package model;
 import util.Voucher;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client extends User implements ClientI {
-    private String phoneNumber;
+
+    private Integer phoneNumber;
     private String nickname;
     private Boolean isBlocked;
     private Integer accumulatedScore;
@@ -13,14 +15,17 @@ public class Client extends User implements ClientI {
     private List<Discount> discounts;
     private List<Voucher> vouchers;
 
-    public Client(String username, String password, String phoneNumber, String nickname) {
+    public Client(String username, String password, Integer phoneNumber, String nickname) {
         super(username, password);
         this.phoneNumber = phoneNumber;
         this.nickname = nickname;
+        this.zones = new ArrayList<>();
+        this.discounts = new ArrayList<>();
+        this.vouchers = new ArrayList<>();
     }
 
     @Override
-    public String getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return phoneNumber;
     }
 

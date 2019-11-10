@@ -4,7 +4,6 @@ import model.*;
 import util.Fine;
 import util.Tariff;
 import util.ToPlan;
-
 import java.util.Date;
 
 /**
@@ -22,32 +21,36 @@ import java.util.Date;
 public class TripService {
     private Trip trip;
 
+    public TripService(Trip trip) {
+        this.trip = trip;
+    }
+
     public void setZone(Zone zone) {
-        if (trip.getTripState().equals(new ToPlan())) {
+        if (trip.getTripState().equals(new ToPlan(trip))) {
             trip.setZone(zone);
         }
     }
 
     public void setAsset(Asset asset) {
-        if (trip.getTripState().equals(new ToPlan())) {
+        if (trip.getTripState().equals(new ToPlan(trip))) {
             trip.setAsset(asset);
         }
     }
 
     public void setTripTime(Date date) {
-        if (trip.getTripState().equals(new ToPlan())) {
+        if (trip.getTripState().equals(new ToPlan(trip))) {
             trip.setTripTime(date);
         }
     }
 
     public void setDiscount(Discount discount){
-        if (trip.getTripState().equals(new ToPlan())) {
+        if (trip.getTripState().equals(new ToPlan(trip))) {
             trip.setDiscount(discount);
         }
     }
 
     public void setTerminalToHandOver(Terminal terminal) {
-        if (trip.getTripState().equals(new ToPlan())) {
+        if (trip.getTripState().equals(new ToPlan(trip))) {
             trip.setTerminalToHandOver(terminal);
         }
     }
@@ -55,7 +58,7 @@ public class TripService {
     public double setTariff(Trip trip, Discount discount, Fine fine) {
         double tripValue = trip.getTariff().calculateTariff(trip, discount, fine);
 
-        Tariff tariff = new Tariff(tripValue, trip.getAsset());
+        Tariff tariff = new Tariff(tripValue);
 
         trip.setTariff(tariff);
 

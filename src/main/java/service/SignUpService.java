@@ -1,6 +1,7 @@
 package service;
 
 import model.Client;
+import repository.ClientRepository;
 import java.util.List;
 
 /**
@@ -9,29 +10,33 @@ import java.util.List;
  */
 
 public class SignUpService {
-    private List<Client> signedUpClients; // persistir (creo que ya esta en admin)
 
-    public void signUp(String username, String phoneNumber) {
+    private ClientRepository clientRepository = new ClientRepository();
+
+    private List<Client> signedUpClients = clientRepository.findAll();
+
+    public String signUp(String username, Integer phoneNumber) {
         for (Client client: signedUpClients) {
-
             if (client.getUsername().equals(username) ||
                     client.getPhoneNumber().equals(phoneNumber)) {
-                throw new RuntimeException("Username or phone number already exists.");
+
+                return "Username or phone number already exists.";
             }
         }
+
+        return "Username and password validated.";
     }
 
-    public Client registerClient(String username, String phoneNumber, String nickname, String password) {
+    public String registerClient(String username, Integer phoneNumber, String nickname, String password) {
         for (Client client: signedUpClients) {
-
             if (client.getNickname().equals(nickname)) {
-                throw new RuntimeException("Nickname already exists.");
+                return "Nickname already exists.";
             }
         }
 
         Client client = new Client(username, password, phoneNumber, nickname);
-        signedUpClients.add(client);
+        clientRepository.create(client);
 
-        return client;
+        return "Registered successfully.";
     }
 }

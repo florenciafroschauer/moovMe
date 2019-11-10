@@ -5,13 +5,13 @@ import java.util.List;
 
 public interface Repository<T> {
 
-    T findOne(Long id);
+    T findOne(Long key);
 
     List<T> findAll();
 
-    T create(T object) throws IOException;
+    T create(T element);
 
-    T update(Long id, T object);
+    T update(Long key, T element);
 
-    void delete(Long id);
+    void delete(Long key);
 }

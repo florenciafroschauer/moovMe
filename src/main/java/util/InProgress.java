@@ -5,9 +5,13 @@ import model.Trip;
 public class InProgress extends TripState {
     private Trip trip;
 
+    public InProgress(Trip trip) {
+        this.trip = trip;
+        type = "In progress";
+    }
 
     @Override
-    public void planificate() {
+    public void plan() {
         throw new RuntimeException("This trip is in progress");
     }
 
@@ -19,6 +23,5 @@ public class InProgress extends TripState {
     @Override
     public void finish() {
         throw new RuntimeException("This trip is in progress");
-
     }
 }

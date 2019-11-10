@@ -12,7 +12,12 @@ import java.util.List;
  */
 
 public class ClientService {
+
     private Client client;
+
+    public ClientService(Client client) {
+        this.client = client;
+    }
 
     public Integer showScore(Client client) {
         return client.getAccumulatedScore();
@@ -26,7 +31,7 @@ public class ClientService {
         return client.getVouchers();
     }
 
-    public String showPhoneNumber(Client client) { return client.getPhoneNumber(); }
+    public Integer showPhoneNumber(Client client) { return client.getPhoneNumber(); }
 
     public String showNickname(Client client) { return client.getNickname(); }
 

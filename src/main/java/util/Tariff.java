@@ -1,17 +1,13 @@
 package util;
 
-import model.Asset;
-import model.AssetI;
 import model.Discount;
 import model.Trip;
 
 public class Tariff {
     private double tripValue;
-    private Asset asset;
 
-    public Tariff(double tripValue, Asset asset) {
+    public Tariff(double tripValue) {
         this.tripValue = tripValue;
-        this.asset = asset;
     }
 
     public void setTripValue(double tripValue) {

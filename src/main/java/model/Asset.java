@@ -1,30 +1,30 @@
 package model;
 
 import util.AssetType;
+import util.Entity;
 import util.KeyGenerator;
 import util.Tariff;
 
-public class Asset implements AssetI {
+public class Asset implements AssetI, Entity {
 
-    private final KeyGenerator key;
+    private final Long key;
     private final AssetType assetType;
     private PurchaseLot purchaseLot;
-    private final Zone zone;
+    private Zone zone;
     private Terminal terminal;
     private Tariff tariff;
     private Integer minScore;
 
-    public Asset(KeyGenerator key, Zone zone, AssetType assetType, Terminal terminal, PurchaseLot purchaseLot) {
-        this.key = key;
+    public Asset(Zone zone, AssetType assetType, Terminal terminal, PurchaseLot purchaseLot) {
+        this.key = new KeyGenerator().generateKey();
         this.zone = zone;
         this.assetType = assetType;
         this.terminal = terminal;
         this.purchaseLot = purchaseLot;
     }
 
-
     @Override
-    public KeyGenerator getKey() {
+    public Long getKey() {
         return key;
     }
 

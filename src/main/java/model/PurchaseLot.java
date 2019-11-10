@@ -1,25 +1,28 @@
 package model;
 
 import util.AssetType;
+import util.Entity;
 import util.KeyGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class PurchaseLot {
-    private List<Asset> assets;
-    private final KeyGenerator key;
+public class PurchaseLot implements Entity {
+
+    private final Long key;
     private final Zone zone;
     private final AssetType assetType;
     private final int lot;
 
-    public PurchaseLot(KeyGenerator key, Zone zone, AssetType assetType, int lot) {
-        this.key = key;
-        this.zone = zone;
+    public PurchaseLot(Zone zone, AssetType assetType, int lot) {
+        this.key = new KeyGenerator().generateKey();
         this.assetType = assetType;
+        this.zone = zone;
         this.lot = lot;
     }
 
-    public KeyGenerator getKey() {
+    @Override
+    public Long getKey() {
         return key;
     }
 

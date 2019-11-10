@@ -5,8 +5,13 @@ import model.Trip;
 public class ToPlan extends TripState {
     private Trip trip;
 
+    public ToPlan(Trip trip) {
+        this.trip = trip;
+        type = "To plan";
+    }
+
     @Override
-    public void planificate() {
+    public void plan() {
         trip.setTripState(this);
     }
 

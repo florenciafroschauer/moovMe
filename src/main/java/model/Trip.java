@@ -1,11 +1,15 @@
 package model;
 
+import util.Entity;
+import util.KeyGenerator;
 import util.Tariff;
 import util.TripState;
 
 import java.util.Date;
 
-public class Trip implements TripI {
+public class Trip implements TripI, Entity {
+
+    private final Long key;
     private final Client client;
     private Asset asset;
     private Zone zone;
@@ -17,9 +21,15 @@ public class Trip implements TripI {
     private TripState tripState;
 
     public Trip(Client client) {
+        this.key = new KeyGenerator().generateKey();
         this.client = client;
+        score = 0;
     }
 
+    @Override
+    public Long getKey() {
+        return key;
+    }
 
     @Override
     public void setAsset(Asset asset) {

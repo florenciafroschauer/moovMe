@@ -1,6 +1,5 @@
 package util;
 
-
 import model.Zone;
 
 public class Fine {

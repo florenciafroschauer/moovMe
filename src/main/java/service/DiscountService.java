@@ -2,8 +2,8 @@ package service;
 
 import model.Discount;
 import model.Trip;
+import repository.DiscountRepository;
 import util.ToPlan;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +12,20 @@ import java.util.List;
  */
 
 public class DiscountService {
+
+    private DiscountRepository discountRepository = new DiscountRepository();
+    private List<Discount> discounts = discountRepository.findAll();
     private Discount discount;
 
-    public List<Discount> showDiscounts(List<Discount> discounts, Trip trip) {
+    public DiscountService(Discount discount) {
+        this.discount = discount;
+    }
+
+    public List<Discount> showDiscounts(Trip trip) {
         List<Discount> discountsCanUse = new ArrayList<>();
 
         for (Discount discount: discounts) {
-            if (canUse(discount, trip)) {
+            if (canUse(trip)) {
                 discountsCanUse.add(discount);
             }
         }
@@ -26,13 +33,13 @@ public class DiscountService {
         return discountsCanUse;
     }
 
-    private boolean canUse(Discount discount, Trip trip) {
-        if (trip.getTripState().equals(new ToPlan())) {
+    public boolean canUse(Trip trip) {
+        if (trip.getTripState().equals(new ToPlan(trip))) {
             return trip.getClient().getScoreToUse() >= discount.getMinScore() &&
                     trip.getAsset().getType().equals(discount.getAssetType()) &&
-                    trip.getZone().getType().equals(discount.getZone().getType());
+                    trip.getZone().equals(discount.getZone());
         }
 
-        throw new RuntimeException("Invalid trip");
+        return false;
     }
 }

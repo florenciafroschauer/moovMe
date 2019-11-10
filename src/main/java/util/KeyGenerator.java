@@ -1,12 +1,11 @@
 package util;
 
+import java.util.Date;
+
 public class KeyGenerator {
-    private Integer key;
+    private Long key;
 
-    public KeyGenerator() {
-    }
-
-    public Integer generateKey() {
-        return key += 1;
+    public Long generateKey() {
+        return new Date().getTime();
     }
 }

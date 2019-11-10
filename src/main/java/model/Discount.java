@@ -1,18 +1,28 @@
 package model;
 
 import util.AssetType;
+import util.Entity;
+import util.KeyGenerator;
 
-public class Discount {
+public class Discount implements Entity {
+
+    private final Long key;
     private final AssetType assetType;
     private final Integer minScore;
     private final Zone zone;
     private final int percent;
 
     public Discount(AssetType assetType, Integer minScore, Zone zone, int percent) {
+        this.key = new KeyGenerator().generateKey();
         this.assetType = assetType;
         this.minScore = minScore;
         this.zone = zone;
         this.percent = percent;
+    }
+
+    @Override
+    public Long getKey() {
+        return key;
     }
 
     public AssetType getAssetType() {

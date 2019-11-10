@@ -2,17 +2,24 @@ package service;
 
 import model.Admin;
 import model.Client;
-
+import repository.AdminRepository;
+import repository.ClientRepository;
 import java.util.List;
 
 /**
  * Perguntar si es admin o client, son dos log in separados.
  */
-public class LogInService {
-    private List<Client> signedUpClients; // persisitr
-    private List<Admin> signedUpAdmins; // persistir
 
-    public void clientLogIn(String nickname, String password) {
+public class LogInService {
+
+    private ClientRepository clientRepository = new ClientRepository();
+    private AdminRepository adminRepository = new AdminRepository();
+
+    private List<Client> signedUpClients = clientRepository.findAll();
+    private List<Admin> signedUpAdmins = adminRepository.findAll();
+
+    public String clientLogIn(String nickname, String password) {
+
         Client client1 = null;
 
         for (Client client: signedUpClients) {
@@ -24,11 +31,14 @@ public class LogInService {
         }
 
         if (client1 == null) {
-            throw new RuntimeException("Invalid nickname or password.");
+            return "Invalid nickname or password.";
         }
+
+        return "Successful log in!";
     }
 
-    public void AdminLogIn(String username, String password) {
+    public String AdminLogIn(String username, String password) {
+
         Admin admin1 = null;
 
         for (Admin admin: signedUpAdmins ) {
@@ -40,7 +50,9 @@ public class LogInService {
         }
 
         if (admin1 == null) {
-            throw new RuntimeException("Invalid username or password.");
+            return "Invalid username or password.";
         }
+
+        return "Successful log in!";
     }
 }

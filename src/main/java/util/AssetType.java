@@ -23,4 +23,8 @@ public class AssetType {
     public Integer getPricePerMinute() {
         return pricePerMinute;
     }
+
+    public boolean equals(AssetType assetType) {
+        return this.getAssetType().equals(assetType.getAssetType());
+    }
 }

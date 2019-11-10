@@ -1,13 +1,10 @@
 package service;
 
 import model.Client;
-import model.Discount;
 import model.Scoring;
-import model.Zone;
-import util.AssetType;
+import repository.ClientRepository;
+import util.Date;
 import util.Voucher;
-
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +15,23 @@ import java.util.List;
  */
 
 public class ScoringService {
-    private Scoring scoring;
-    private List<Client> clients; // persistir
 
-    // En algun lado se tienen que separar listas de clientes por zona, los tableros son por zona.
+    private ClientRepository clientRepository = new ClientRepository();
+
+    private List<Client> clients = clientRepository.findAll();
+    private Scoring scoring;
+
+    public ScoringService(Scoring scoring) {
+        this.scoring = scoring;
+    }
 
     public List<String> showLeaders() {
 
         scoring.sortLeaderBoard(clients);
+
         List<String> nicknames = new ArrayList<>(10);
 
         int i = 1;
-
         for (Client client: clients) {
             if (nicknames.size() <= 10) {
                 nicknames.add(i + ". " + client.getNickname());
@@ -41,7 +43,7 @@ public class ScoringService {
     }
 
     public Voucher createVoucher(String description) {
-        return new Voucher((description));
+        return new Voucher(description);
     }
 
     public void rewardBestThree(Date date) {
