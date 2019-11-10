@@ -6,6 +6,9 @@ import org.junit.runner.RunWith;
 import util.AssetType;
 import util.KeyGenerator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class DiscountServiceTest {
@@ -20,17 +23,19 @@ public class DiscountServiceTest {
     Terminal terminal = new Terminal(zone1, "Test");
     PurchaseLot purchaseLot = new PurchaseLot( zone1, assetType, 5);
     KeyGenerator keyGenerator1 = new KeyGenerator();
+    ArrayList<Discount> discounts = new ArrayList<>();
     Asset asset = new Asset(zone1, assetType, terminal, purchaseLot);
     DiscountService discountService = new DiscountService(descuento);
     @Test
     public void showDiscounts() {
         discountService.showDiscounts(trip);
-
+        assertEquals(discounts, discountService.showDiscounts(trip));
     }
 
     public void canUse() {
         client.sumScore(10);
         trip.setAsset(asset);
         discountService.canUse(trip);
+        assertEquals(true, discountService.canUse(trip));
     }
 }
