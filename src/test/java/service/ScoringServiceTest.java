@@ -1,15 +1,16 @@
 package service;
 
-import com.sun.tools.javac.util.List;
 import model.Client;
 import model.Scoring;
 import model.Zone;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import util.Date;
 import util.Voucher;
 
+
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -17,13 +18,11 @@ public class ScoringServiceTest {
     Zone zone = new Zone("Test", 1);
     Scoring scoring = new Scoring(zone);
     ScoringService scoringService = new ScoringService(scoring);
-    List<String>nickNamesTest;
-
-
-    List<Client>clients = new List<>();//SOLUCIONAR
-
-    Scoring scoring = new Scoring(clients, zone);
+    List<String> nickNamesTest;
+    List<Client>clients = new ArrayList<>();
     Voucher voucher = new Voucher("Test");
+    Date date = new Date(1,1, 1);
+
 
     @Test
     public void showLeaders() {
@@ -37,7 +36,7 @@ public class ScoringServiceTest {
 
     @Test
     public void rewardBestThree() {
-        scoringService.rewardBestThree();//ACA VA UN DATE
+        scoringService.rewardBestThree(date);
         assertEquals(true, scoring.getLeaderBoard().get(0).getVouchers().contains(voucher));
         assertEquals(true, scoring.getLeaderBoard().get(1).getVouchers().contains(voucher));
         assertEquals(true, scoring.getLeaderBoard().get(2).getVouchers().contains(voucher));

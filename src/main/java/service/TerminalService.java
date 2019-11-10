@@ -42,6 +42,7 @@ public class TerminalService {
             if (date.compareTo(trip.getTripTime()) <= 0) {
                 Integer score = (int)(trip.getScore() * 0.2);
                 trip.setScore(score);
+                trip.getClient().sumScore(score);
             }
         }
     }
