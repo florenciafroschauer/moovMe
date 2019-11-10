@@ -48,7 +48,7 @@ public class LogInView {
                 String registerUsername = scanner.nextLine();
 
                 System.out.println("Please insert your phone number.");
-                String registerPhoneNumber = scanner.nextLine();
+                Integer registerPhoneNumber = scanner.nextInt();
 
                 signUpService.signUp(registerUsername, registerPhoneNumber);
 
