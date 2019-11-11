@@ -16,34 +16,34 @@ public class DiscountRepository extends AbstractRepository<Discount> {
                 new Zone("CABA", 10),
                 20));
 
-        create(new Discount(new AssetType("Moto",
+        create(new Discount(new AssetType("Bici",
                 5, 30), 50,
-                new Zone("Pilar", 15),
+                new Zone("CABA", 15),
                 25));
 
-        create(new Discount(new AssetType("Scooter",
+        create(new Discount(new AssetType("Bici",
                 5, 20), 30,
-                new Zone("Vicente Lopez", 10),
+                new Zone("CABA", 10),
                 10));
 
-        create(new Discount(new AssetType("Bici Moto",
+        create(new Discount(new AssetType("Bici",
                 20, 15), 30,
-                new Zone("Munro", 18),
+                new Zone("CABA", 18),
                 5));
 
-        create(new Discount(new AssetType("MonoPatin",
+        create(new Discount(new AssetType("Bici",
                 13, 15), 80,
-                new Zone("Villa Crespo", 5),
+                new Zone("CABA", 5),
                 35));
 
-        create(new Discount(new AssetType("Clio",
+        create(new Discount(new AssetType("Bici",
                 15, 15), 60,
-                new Zone("Pacheco", 10),
+                new Zone("CABA", 10),
                 20));
 
-        create(new Discount(new AssetType("BatiMovil",
+        create(new Discount(new AssetType("Bici",
                 20, 15), 80,
-                new Zone("La lucila", 10),
+                new Zone("CABA", 10),
                 30));
     }
 
