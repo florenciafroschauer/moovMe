@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TerminalService {
 
-    private TerminalRepository terminalRepository = new TerminalRepository();
+    private TerminalRepository terminalRepository = TerminalRepository.getInstance();
 
     private List<Terminal> terminals = terminalRepository.findAll();
 

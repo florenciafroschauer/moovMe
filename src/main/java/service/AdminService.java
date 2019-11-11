@@ -17,11 +17,11 @@ import util.InProgress;
 
 public class AdminService {
 
-    private ClientRepository clientRepository = new ClientRepository();
-    private BlockedClientRepository blockedClientRepository = new BlockedClientRepository();
-    private PurchaseLotRepository purchaseLotRepository = new PurchaseLotRepository();
-    private DiscountRepository discountRepository = new DiscountRepository();
-    private TerminalRepository terminalRepository = new TerminalRepository();
+    private ClientRepository clientRepository = ClientRepository.getInstance();
+    private BlockedClientRepository blockedClientRepository = BlockedClientRepository.getInstance();
+    private PurchaseLotRepository purchaseLotRepository = PurchaseLotRepository.getInstance();
+    private DiscountRepository discountRepository = DiscountRepository.getInstance();
+    private TerminalRepository terminalRepository = TerminalRepository.getInstance();
     private PurchaseLotService lotService = new PurchaseLotService();
     private TerminalService terminalService = new TerminalService();
 

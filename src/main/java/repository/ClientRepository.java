@@ -7,6 +7,10 @@ import java.util.List;
 
 public class ClientRepository extends AbstractRepository<Client> implements UserRepositoryInterface {
 
+    private static ClientRepository clientRepository;
+
+    private ClientRepository() {}
+
     @Override
     public User searchByUsername(String username) {
         List<Client> clients = findAll();
@@ -36,5 +40,15 @@ public class ClientRepository extends AbstractRepository<Client> implements User
         }
 
         return null;
+    }
+
+    public static ClientRepository getInstance() {
+        if (clientRepository != null) {
+            return clientRepository;
+        } else {
+            clientRepository = new ClientRepository();
+        }
+
+        return clientRepository;
     }
 }

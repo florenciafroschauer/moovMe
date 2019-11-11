@@ -6,13 +6,13 @@ import java.util.List;
 
 public class ViewService {
 
-    private ClientRepository clientRepository = new ClientRepository();
-    private BlockedClientRepository blockedClientRepository = new BlockedClientRepository();
-    private TripRepository tripRepository = new TripRepository();
-    private TerminalRepository terminalRepository = new TerminalRepository();
-    private ZoneRepository zoneRepository = new ZoneRepository();
-    private AssetRepository assetRepository = new AssetRepository();
-    private DiscountRepository discountRepository = new DiscountRepository();
+    private ClientRepository clientRepository = ClientRepository.getInstance();
+    private BlockedClientRepository blockedClientRepository = BlockedClientRepository.getInstance();
+    private TripRepository tripRepository = TripRepository.getInstance();
+    private TerminalRepository terminalRepository = TerminalRepository.getInstance();
+    private ZoneRepository zoneRepository = ZoneRepository.getInstance();
+    private AssetRepository assetRepository = AssetRepository.getInstance();
+    private DiscountRepository discountRepository = DiscountRepository.getInstance();
 
     private List<Client> clients = clientRepository.findAll();
     private List<Client> blockedClients = blockedClientRepository.findAll();

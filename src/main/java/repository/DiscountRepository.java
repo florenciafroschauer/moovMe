@@ -8,6 +8,10 @@ import java.util.List;
 
 public class DiscountRepository extends AbstractRepository<Discount> {
 
+    private static DiscountRepository discountRepository;
+
+    private DiscountRepository() {}
+
     public List<Discount> searchByAssetType(AssetType assetType) {
         List<Discount> discounts = findAll();
         List<Discount> assetTypeDiscounts = new ArrayList<>();
@@ -32,5 +36,15 @@ public class DiscountRepository extends AbstractRepository<Discount> {
         }
 
         return discountsInZone;
+    }
+
+    public static DiscountRepository getInstance() {
+        if (discountRepository != null) {
+            return discountRepository;
+        } else {
+            discountRepository = new DiscountRepository();
+        }
+
+        return discountRepository;
     }
 }

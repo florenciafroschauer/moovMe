@@ -8,7 +8,7 @@ import repository.AssetRepository;
  */
 
 public class PurchaseLotService {
-    private AssetRepository assetRepository = new AssetRepository();
+    private AssetRepository assetRepository = AssetRepository.getInstance();
 
     public void createLot(Asset asset, int lot) {
         for (int i = 0; i <= lot; i++) {

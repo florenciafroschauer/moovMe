@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ScoringService {
 
-    private ClientRepository clientRepository = new ClientRepository();
+    private ClientRepository clientRepository = ClientRepository.getInstance();
 
     private List<Client> clients = clientRepository.findAll();
     private Scoring scoring;

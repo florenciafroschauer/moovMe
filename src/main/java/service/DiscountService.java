@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DiscountService {
 
-    private DiscountRepository discountRepository = new DiscountRepository();
+    private DiscountRepository discountRepository = DiscountRepository.getInstance();
     private List<Discount> discounts = discountRepository.findAll();
 
     public List<Discount> showDiscounts(Trip trip) {

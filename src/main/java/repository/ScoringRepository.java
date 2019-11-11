@@ -6,6 +6,10 @@ import java.util.List;
 
 public class ScoringRepository extends AbstractRepository<Scoring> {
 
+    private static ScoringRepository scoringRepository;
+
+    private ScoringRepository() {}
+
     public Scoring searchByZone(Zone zone) {
         List<Scoring> scoringList = findAll();
 
@@ -14,5 +18,15 @@ public class ScoringRepository extends AbstractRepository<Scoring> {
         }
         Scoring scoring = new Scoring(zone);
         return create(scoring);
+    }
+
+    public static ScoringRepository getInstance() {
+        if (scoringRepository != null) {
+            return scoringRepository;
+        } else {
+            scoringRepository = new ScoringRepository();
+        }
+
+        return scoringRepository;
     }
 }

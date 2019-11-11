@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SignUpService {
 
-    private ClientRepository clientRepository = new ClientRepository();
+    private ClientRepository clientRepository = ClientRepository.getInstance();
 
     private List<Client> signedUpClients = clientRepository.findAll();
 

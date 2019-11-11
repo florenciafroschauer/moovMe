@@ -8,6 +8,11 @@ import java.util.List;
 
 public class PurchaseLotRepository extends AbstractRepository<PurchaseLot> {
 
+    private static PurchaseLotRepository purchaseLotRepository;
+
+    private PurchaseLotRepository() {
+    }
+
     public List<PurchaseLot> searchByAssetType(AssetType assetType) {
         List<PurchaseLot> purchaseLots = findAll();
         List<PurchaseLot> assetTypeLots = new ArrayList<>();
@@ -32,5 +37,15 @@ public class PurchaseLotRepository extends AbstractRepository<PurchaseLot> {
         }
 
         return lotsInZone;
+    }
+
+    public static PurchaseLotRepository getInstance() {
+        if (purchaseLotRepository != null) {
+            return purchaseLotRepository;
+        } else {
+            purchaseLotRepository = new PurchaseLotRepository();
+        }
+
+        return purchaseLotRepository;
     }
 }

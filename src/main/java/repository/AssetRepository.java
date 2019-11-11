@@ -8,6 +8,10 @@ import java.util.List;
 
 public class AssetRepository extends AbstractRepository<Asset> {
 
+    private static AssetRepository assetRepository;
+
+    private AssetRepository() {}
+
     public Asset searchByAssetType(AssetType assetType) {
         List<Asset> assets = findAll();
 
@@ -29,5 +33,16 @@ public class AssetRepository extends AbstractRepository<Asset> {
         }
 
         return assetsInZone;
+    }
+
+    public static AssetRepository getInstance() {
+
+        if (assetRepository != null) {
+            return assetRepository;
+        } else {
+            assetRepository = new AssetRepository();
+        }
+
+        return assetRepository;
     }
 }

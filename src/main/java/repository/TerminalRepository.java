@@ -7,6 +7,10 @@ import java.util.List;
 
 public class TerminalRepository extends AbstractRepository<Terminal> {
 
+    private static TerminalRepository terminalRepository;
+
+    private TerminalRepository() {}
+
     public List<Terminal> searchByZone(Zone zone) {
         List<Terminal> terminals = findAll();
         List<Terminal> terminalsInZone = new ArrayList<>();
@@ -28,5 +32,15 @@ public class TerminalRepository extends AbstractRepository<Terminal> {
         }
 
         return null;
+    }
+
+    public static TerminalRepository getInstance() {
+        if (terminalRepository != null) {
+            return terminalRepository;
+        } else {
+            terminalRepository = new TerminalRepository();
+        }
+
+        return terminalRepository;
     }
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ClientLogIn {
     private Scanner scanner = new Scanner(System.in);
     private LogInService clientLogIn = new LogInService();
-    //private ClientMenu clientMenu = new ClientMenu();
+    private ClientMenu clientMenu = new ClientMenu();
     private Client client;
 
     public void clientLogIn() {
@@ -46,7 +46,7 @@ public class ClientLogIn {
 
         System.out.println(valid);
 
-        //clientMenu.clientMenu();
+        clientMenu.clientMenu();
     }
 
     /**
