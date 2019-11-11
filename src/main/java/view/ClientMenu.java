@@ -33,7 +33,7 @@ public class ClientMenu {
             case 1: newTrip();
             case 2: showLeaderBoard();
             case 3: showProfile();
-            case 4: System.out.println("Thanks for using MoovMe.");
+            case 4: System.out.println("Thanks for using MoovMe."); System.exit(0);
             default: System.out.println("Invalid option");
         }
 

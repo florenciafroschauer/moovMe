@@ -31,7 +31,7 @@ public class ScoringServiceTest {
 
     @Test
     public void createVoucher() {
-        voucher2 = scoringService.createVoucher("Test");
+        voucher2 = scoringService.createVoucher("Best in the area: 50% discount");
         assertTrue(voucher2.equals(voucher));
     }
 

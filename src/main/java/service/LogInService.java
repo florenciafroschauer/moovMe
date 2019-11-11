@@ -13,7 +13,7 @@ import java.util.List;
 public class LogInService {
 
     private ClientRepository clientRepository = new ClientRepository();
-    private AdminRepository adminRepository = new AdminRepository();
+    private AdminRepository adminRepository = AdminRepository.getInstance();
 
     private List<Client> signedUpClients = clientRepository.findAll();
     private List<Admin> signedUpAdmins = adminRepository.findAll();

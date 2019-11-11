@@ -7,6 +7,11 @@ import java.util.List;
 
 public class AdminRepository extends AbstractRepository<Admin> implements UserRepositoryInterface {
 
+    private static AdminRepository adminRepository;
+
+    private AdminRepository() {
+    }
+
     @Override
     public User searchByUsername(String username) {
         List<Admin> admins = findAll();
@@ -16,5 +21,15 @@ public class AdminRepository extends AbstractRepository<Admin> implements UserRe
         }
 
         return null;
+    }
+
+    public static AdminRepository getInstance() {
+        if (adminRepository != null) {
+            return adminRepository;
+        } else {
+            adminRepository = new AdminRepository();
+        }
+
+        return adminRepository;
     }
 }

@@ -3,6 +3,7 @@ package view;
 import java.util.Scanner;
 
 public class MainScreen {
+
     private Scanner scanner = new Scanner(System.in);
     private AdminLogIn adminLogIn = new AdminLogIn();
     private ClientSignUp clientSignUp = new ClientSignUp();

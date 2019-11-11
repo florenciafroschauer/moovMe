@@ -13,15 +13,15 @@ public class ClientSignUp {
     public void clientSignUp() {
 
         System.out.println("Client sign up: \n");
-        System.out.print("Please enter your username: "); // le saque el ln
+        System.out.println("Please enter your username: "); // le saque el ln
 
         String username = scanner.nextLine();
 
-        System.out.print("\n\n Please enter your phonenumber: ");
+        System.out.println("\n\n Please enter your phonenumber: ");
 
         Integer phoneNumber = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         String valid = signUpService.signUp(username, phoneNumber);
@@ -30,71 +30,71 @@ public class ClientSignUp {
             System.out.print("\033[H\033[2J");
             System.out.flush();
 
-            System.out.print("Please enter your username: "); // le saque el ln
+            System.out.println("Please enter your username: "); // le saque el ln
 
-            String username2 = scanner.nextLine();
+            String username2 = scanner.next();
 
-            System.out.print("\n\n Please enter your phonenumber: ");
+            System.out.println("Please enter your phonenumber: ");
 
             Integer phoneNumber2 = scanner.nextInt();
 
             valid = signUpService.signUp(username2, phoneNumber2);
         }
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         System.out.println(valid);
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
-        System.out.print("Pleas enter your nickname: "); // aca tambien
+        System.out.println("Please enter your nickname: "); // aca tambien
 
-        String nickname = scanner.nextLine();
+        String nickname = scanner.next();
 
         System.out.println("Please enter your password: ");
 
-        String password = scanner.nextLine();
+        String password = scanner.next();
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         String valid1 = signUpService.registerClient(username, phoneNumber, nickname, password);
 
         while (valid1.equals("Nickname already exists.")) {
-            System.out.print("\033[H\033[2J");
+            System.out.println("\033[H\033[2J");
             System.out.flush();
 
-            System.out.print("Pleas enter your nickname: "); // aca tambien
+            System.out.println("Pleas enter your nickname: "); // aca tambien
 
             String nickname2 = scanner.nextLine();
 
             valid1 = signUpService.registerClient(username, phoneNumber, nickname2, password);
         }
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         System.out.println(valid1);
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         client = new Client(username, password, phoneNumber, nickname);
 
         System.out.println("Would you like to log in? ");
-        String clientAnswer = scanner.nextLine();
+        String clientAnswer = scanner.next();
 
         while (!clientAnswer.equals("yes") && !clientAnswer.equals("no")) {
-            System.out.print("\033[H\033[2J");
+            System.out.println("\033[H\033[2J");
             System.out.flush();
 
             System.out.println("Would you like to log in? ");
 
-            clientAnswer = scanner.nextLine();
+            clientAnswer = scanner.next();
         }
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         if (clientAnswer.equals("yes")) {
