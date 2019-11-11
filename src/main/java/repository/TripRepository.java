@@ -8,9 +8,9 @@ public class TripRepository extends AbstractRepository<Trip> {
     private static TripRepository tripRepository;
 
     private TripRepository() {
-        create(new Trip(new Client("Agus", "123", 123, "Agus")));
-        create(new Trip(new Client("Flor", "1234", 1234, "Flor")));
-        create(new Trip(new Client("Santi", "1235", 12345, "Santi")));
+        create(new Trip(new Client("agus", "123", 123, "agus")));
+        create(new Trip(new Client("flor", "1234", 1234, "flor")));
+        create(new Trip(new Client("santi", "1235", 12345, "santi")));
     }
 
     public static TripRepository getInstance() {

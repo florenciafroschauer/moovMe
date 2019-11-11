@@ -44,8 +44,7 @@ public class ViewService {
 
     public void getTrips() {
         for (int i = 0; i < trips.size(); i++) {
-            System.out.println(trips.get(i).getClient().getNickname() +
-                    "'s trip in " + trips.get(i).getZone().getType());
+            System.out.println(i + ". " + trips.get(i).getClient().getNickname() + "'s trip");
         }
     }
 

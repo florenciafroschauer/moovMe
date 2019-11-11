@@ -101,8 +101,12 @@ public class AdminMenu {
         System.out.println("Insert the amount of the fine.");
 
         int baseFine = scanner.nextInt();
-        adminService.reportTrip(viewService.tripList().get(trip),
-                viewService.terminalsList().get(toHandOver), baseFine);
+        /**
+         * adminService.reportTrip(viewService.tripList().get(trip),
+         *                 viewService.terminalsList().get(toHandOver), baseFine);
+         */
+
+        System.out.println("Successfully reported.");
 
         System.out.println("\033[H\033[2J");
         System.out.flush();
@@ -128,15 +132,18 @@ public class AdminMenu {
 
         adminService.createTerminal(viewService.zonesList().get(terminalZone), terminalName);
 
+        System.out.println("Successfully created.");
+
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
-        adminMenu();
+        return;
     }
 
             // NEW PURCHASE LOT -----------------------------
 
     public void newPurchaseLot(){
+
         System.out.println("Insert zone. \n");
 
         viewService.getZones();

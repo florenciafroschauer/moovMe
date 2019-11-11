@@ -9,7 +9,8 @@ public class Fine {
 
     public Fine(Zone zone, int basePrice){
         this.zone = zone;
-        this.fineValue = basePrice * zone.getRate();
+        this.fineValue = 0;
+        fineValue += basePrice * zone.getRate();
     }
 
     public Integer getFineValue() {

@@ -40,17 +40,12 @@ public class AdminService {
     }
 
     public Fine reportTrip(Trip trip, Terminal toHandOver, int baseFine) {
-
-        if (trip.getTripState().equals(new InProgress(trip))) {
-            Fine fine = new Fine(trip.getZone(), baseFine);
+         Fine fine = new Fine(trip.getZone(), baseFine);
 
             blockClient(trip.getClient());
             trip.setTerminalToHandOver(toHandOver);
 
             return fine;
-        }
-
-        return null;
     }
 
     public PurchaseLot createPurchaseLot(Zone zone, AssetType assetType, Terminal terminal, int lot) {

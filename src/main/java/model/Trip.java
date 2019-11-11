@@ -16,8 +16,8 @@ public class Trip implements TripI, Entity {
     private TripState tripState;
 
     public Trip(Client client) {
-        this.key = new KeyGenerator().generateKey();
         this.client = client;
+        this.key = new KeyGenerator().generateKey();
         this.score = 0;
     }
 
