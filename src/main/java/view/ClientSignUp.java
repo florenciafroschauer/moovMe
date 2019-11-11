@@ -26,8 +26,7 @@ public class ClientSignUp {
         String valid = signUpService.signUp(username, phoneNumber);
 
         while (valid.equals("Username or phone number already exists.")) {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
+
 
             System.out.println("Please enter your username: "); // le saque el ln
 

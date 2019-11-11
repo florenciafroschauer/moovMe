@@ -21,14 +21,12 @@ public class AdminLogIn {
 
         String password = scanner.next();
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         String valid = adminLogIn.AdminLogIn(username, password);
 
         while (valid.equals("Invalid username or password.")) {
-            System.out.println("\033[H\033[2J");
-            System.out.flush();
+
 
             System.out.println("Please enter your username: ");
 
@@ -41,8 +39,7 @@ public class AdminLogIn {
             valid = adminLogIn.AdminLogIn(username2, password2);
         }
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println(valid);
 

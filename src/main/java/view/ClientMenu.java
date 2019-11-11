@@ -52,8 +52,7 @@ public class ClientMenu {
         Zone zone1 = viewService.zonesList().get(zone);
         trip.setZone(zone1);
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println("Please, choose an asset:");
 
@@ -64,8 +63,7 @@ public class ClientMenu {
         Asset asset1 = viewService.assetsList().get(asset);
         trip.setAsset(asset1);
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println("If you want, choose a terminal to deliver the asset or -1 if not.");
 
@@ -81,20 +79,17 @@ public class ClientMenu {
             trip.setTerminalToHandOver(terminal1);
         }
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println("Please, choose hour to return the asset");
         int hour = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println("Please, choose minute to return the asset");
         int minute = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+
 
         Hour tripHour = new Hour(minute, hour);
         trip.setTripTime(tripHour);
@@ -117,24 +112,21 @@ public class ClientMenu {
             trip.setDiscount(discount1);
         }
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println("Would you like to change your trip information? \n");
 
         String clientAnswer = scanner.nextLine();
 
         while (!clientAnswer.equals("yes") && !clientAnswer.equals("no")) {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
+
 
             System.out.println("Would you like to change your trip information? \n");
 
             clientAnswer = scanner.nextLine();
         }
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+
 
         if (clientAnswer.equals("yes")) {
             newTrip();
@@ -163,8 +155,7 @@ public class ClientMenu {
         int clientAnswer = scanner.nextInt();
 
         while (clientAnswer != 1) {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
+
 
             clientAnswer = scanner.nextInt();
         }

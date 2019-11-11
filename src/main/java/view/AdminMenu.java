@@ -52,8 +52,7 @@ public class AdminMenu {
         adminService.blockClient(viewService.clientsList().get(blockClient));
         System.out.println("Successfully blocked.");
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         adminMenu();
     }
@@ -86,8 +85,7 @@ public class AdminMenu {
 
         int trip = scanner.nextInt();
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println("Insert terminal to hand over.");
 
@@ -108,8 +106,7 @@ public class AdminMenu {
 
         System.out.println("Successfully reported.");
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         adminMenu();
     }
@@ -175,8 +172,7 @@ public class AdminMenu {
         adminService.createPurchaseLot(viewService.zonesList().get(zone),
                 viewService.assetsList().get(asset).getType(), viewService.terminalsList().get(terminal), lot);
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         adminMenu();
     }
@@ -207,8 +203,7 @@ public class AdminMenu {
 
         int zone = scanner.nextInt();
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println("Enter discount percentage. ");
 
@@ -217,8 +212,7 @@ public class AdminMenu {
         adminService.createDiscount(viewService.assetsList().get(asset).getType(), minScore,
                 viewService.zonesList().get(zone), percent);
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         adminMenu();
     }
