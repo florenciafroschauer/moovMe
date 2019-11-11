@@ -6,7 +6,6 @@ import model.Zone;
 import org.junit.Test;
 import util.Date;
 import util.Voucher;
-import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.*;
 
@@ -19,7 +18,6 @@ public class ScoringServiceTest {
     private Scoring scoring = new Scoring(zone);
     private ScoringService scoringService = new ScoringService(scoring);
     private List<String> nickNamesTest = scoringService.showLeaders();
-    private List<Client>clients = new ArrayList<>();
     private Voucher voucher = new Voucher("Best in the area: 50% discount");
     private Date date = new Date(30,3, 2001);
     private Voucher voucher2;
