@@ -7,36 +7,25 @@ import repository.TerminalRepository;
 import util.AssetType;
 import util.Fine;
 import util.InProgress;
-import util.KeyGenerator;
-
 import static org.junit.Assert.*;
 
 public class AdminServiceTest {
 
-    ClientRepository clientRepository = new ClientRepository();
-    TerminalRepository terminalRepository = new TerminalRepository();
-
-
-    AdminService adminService = new AdminService();
-    Client client = new Client("Test", "Test", 111111, "Test");
-    Zone zone = new Zone("CABA", 1);
-    Terminal terminal = new Terminal(zone, "Hola");
-    AssetType assetType = new AssetType("moto", 1, 1);
-    PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 1);
-    Asset asset = new Asset(zone, assetType, terminal,purchaseLot);
-
-
-    Trip trip = new Trip(client);
-    InProgress inProgress = new InProgress(trip);
-    Discount discount = new Discount(assetType, 1, zone, 1);
-
-    Client client1 = new Client("Test1", "Test1", 1111111, "Test1");
-    Client client2 = new Client("Test2", "Test2", 1111112, "Test2");
-    Client client3 = new Client("Test3", "Test3", 1111113, "Test3");
-
-
-
-
+    private ClientRepository clientRepository = ClientRepository.getInstance();
+    private TerminalRepository terminalRepository = TerminalRepository.getInstance();
+    private AdminService adminService = new AdminService();
+    private Client client = new Client("Test", "Test", 111111, "Test");
+    private Zone zone = new Zone("CABA", 1);
+    private Terminal terminal = new Terminal(zone, "Hola");
+    private AssetType assetType = new AssetType("moto", 1, 1);
+    private PurchaseLot purchaseLot = new PurchaseLot(zone, assetType, 1);
+    private Asset asset = new Asset(zone, assetType, terminal,purchaseLot);
+    private Trip trip = new Trip(client);
+    private InProgress inProgress = new InProgress(trip);
+    private Discount discount = new Discount(assetType, 1, zone, 1);
+    private Client client1 = new Client("Test1", "Test1", 1111111, "Test1");
+    private Client client2 = new Client("Test2", "Test2", 1111112, "Test2");
+    private Client client3 = new Client("Test3", "Test3", 1111113, "Test3");
 
     @Test
     public void blockClient() {

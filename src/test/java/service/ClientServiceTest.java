@@ -13,14 +13,12 @@ import static org.junit.Assert.*;
 
 public class ClientServiceTest {
 
-
-    public Client client = new Client("Test", "Test", 1, "Test");
-    public ClientService clientService = new ClientService(client);
-    public Zone zone = new Zone("CABA", 25);
-    public AssetType assetType = new AssetType("Bici", 1, 20);
-    public Discount discount = new Discount(assetType, 20, zone, 10);
-    Voucher voucher = new Voucher("VoucherTest");
-    public List<Discount>discounts = new ArrayList<>();
+    private Client client = new Client("Test", "Test", 1, "Test");
+    private ClientService clientService = new ClientService(client);
+    private Zone zone = new Zone("CABA", 25);
+    private AssetType assetType = new AssetType("Bici", 1, 20);
+    private Discount discount = new Discount(assetType, 20, zone, 10);
+    private Voucher voucher = new Voucher("VoucherTest");
 
     @Test
     public void showScore() {

@@ -19,7 +19,6 @@ public class ZoneRepository extends AbstractRepository<Zone> {
         create(new Zone("San Isidro", 5));
     }
 
-
     public static ZoneRepository getInstance() {
         if (zoneRepository != null) {
             return zoneRepository;
