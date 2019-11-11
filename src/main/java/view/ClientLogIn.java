@@ -30,7 +30,7 @@ public class ClientLogIn {
             System.out.println("\033[H\033[2J");
             System.out.flush();
 
-            System.out.println("Please enter your nickname: "); // le saque el ln
+            System.out.println("Please enter your nickname: ");
 
             String nickname2 = scanner.next();
 
@@ -48,31 +48,4 @@ public class ClientLogIn {
 
         clientMenu.clientMenu();
     }
-
-    /**
-     * Menu:
-     *
-     * 1. Log in
-     * 2. Signup as admin
-     * 3. Signup as user
-     *
-     * 3
-     *
-     * Nombre: brian
-     * Contraseña: asdfasdf
-     *
-     * 1
-     *
-     * Nombre: brian
-     * Contraseña: asdfasd
-     *
-     * 1. Realizar viaje
-     * 2. Ver perfil
-     * 3. Salir
-     *
-     *
-     * ----
-     *
-     *
-     */
 }

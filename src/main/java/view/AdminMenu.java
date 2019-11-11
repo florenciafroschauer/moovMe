@@ -32,7 +32,7 @@ public class AdminMenu {
             case 4: createTerminal();
             case 5: newPurchaseLot();
             case 6: createDiscount();
-            case 7: System.out.println("Thanks for using MoovMe");
+            case 7: System.out.println("Thanks for using MoovMe"); System.exit(0);
             default:
                 System.out.println("Invalid option");
         }
@@ -52,7 +52,7 @@ public class AdminMenu {
         adminService.blockClient(viewService.clientsList().get(blockClient));
         System.out.println("Successfully blocked.");
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         adminMenu();
@@ -86,7 +86,7 @@ public class AdminMenu {
 
         int trip = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         System.out.println("Insert terminal to hand over.");
@@ -104,7 +104,7 @@ public class AdminMenu {
         adminService.reportTrip(viewService.tripList().get(trip),
                 viewService.terminalsList().get(toHandOver), baseFine);
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         adminMenu();
@@ -124,7 +124,7 @@ public class AdminMenu {
 
         System.out.println("Insert name of the new terminal.");
 
-        String terminalName = scanner.nextLine();
+        String terminalName = scanner.next();
 
         adminService.createTerminal(viewService.zonesList().get(terminalZone), terminalName);
 
@@ -168,7 +168,7 @@ public class AdminMenu {
         adminService.createPurchaseLot(viewService.zonesList().get(zone),
                 viewService.assetsList().get(asset).getType(), viewService.terminalsList().get(terminal), lot);
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         adminMenu();
@@ -200,7 +200,7 @@ public class AdminMenu {
 
         int zone = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         System.out.println("Enter discount percentage. ");
@@ -210,7 +210,7 @@ public class AdminMenu {
         adminService.createDiscount(viewService.assetsList().get(asset).getType(), minScore,
                 viewService.zonesList().get(zone), percent);
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         adminMenu();

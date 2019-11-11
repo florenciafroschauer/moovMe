@@ -75,6 +75,7 @@ public class ClientMenu {
 
         if (terminal == -1) {
             Terminal terminal1 = null;
+            trip.setTerminalToHandOver(terminal1);
         } else {
             Terminal terminal1 = viewService.terminalsInZoneList(zone1).get(terminal);
             trip.setTerminalToHandOver(terminal1);
@@ -108,8 +109,13 @@ public class ClientMenu {
 
         int discount = scanner.nextInt();
 
-        Discount discount1 = viewService.discountList().get(discount);
-        trip.setDiscount(discount1);
+        if (discount == -1) {
+            Discount discount1 = null;
+            trip.setDiscount(discount1);
+        } else {
+            Discount discount1 = viewService.discountList().get(discount);
+            trip.setDiscount(discount1);
+        }
 
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -189,6 +195,7 @@ public class ClientMenu {
 
             case 3: clientMenu();
         }
+
         showProfile();
     }
 }

@@ -13,22 +13,22 @@ public class MainScreen {
         System.out.println("Welcome to MoovMe!");
         System.out.println("Are you an admin or a client? ");
 
-        String userAnswer = scanner.nextLine();
+        String userAnswer = scanner.next();
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         while (!userAnswer.equals("admin") && !userAnswer.equals("client")) {
-            System.out.print("\033[H\033[2J");
+            System.out.println("\033[H\033[2J");
             System.out.flush();
 
             System.out.println("Invalid answer.\n " +
                     "Are you an admin or a client? ");
 
-            scanner.nextLine();
+            userAnswer = scanner.next();
         }
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         if (userAnswer.equals("admin")) {
@@ -36,22 +36,25 @@ public class MainScreen {
         }
 
         if (userAnswer.equals("client")) {
-            System.out.println("Would you like to sign up or log in? ");
-            String userAnswer2 = scanner.nextLine();
 
-            System.out.print("\033[H\033[2J");
+            System.out.println("Would you like to sign up or log in? ");
+
+            String userAnswer2 = scanner.next();
+
+            System.out.println("\033[H\033[2J");
             System.out.flush();
 
             while (!userAnswer2.equals("sign up") && !userAnswer2.equals("log in")) {
-                System.out.print("\033[H\033[2J");
+                System.out.println("\033[H\033[2J");
                 System.out.flush();
 
                 System.out.println("Invalid answer.\n " +
                         "Would you like to sign up or log in? ");
-                scanner.nextLine();
+
+                userAnswer2 = scanner.next();
             }
 
-            System.out.print("\033[H\033[2J");
+            System.out.println("\033[H\033[2J");
             System.out.flush();
 
             if (userAnswer2.equals("sign up")) {
