@@ -12,7 +12,10 @@ public class ClientRepository extends AbstractRepository<Client> implements User
     private ClientRepository() {
         create(new Client("santi", "1234", 1130041854, "santi"));
         create(new Client("agus", "1234", 1138081835, "agus"));
-        create(new Client("flor", "1234", 1143383000, "flor"));
+
+        Client client = (new Client("flor", "1234", 1143383000, "flor"));
+        client.sumScore(100);
+        create(client);
         create(new Client("alex", "1234", 1143338542, "alex"));
     }
 

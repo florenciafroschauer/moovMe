@@ -15,18 +15,13 @@ public class MainScreen {
 
         String userAnswer = scanner.next();
 
-
-
         while (!userAnswer.equals("admin") && !userAnswer.equals("client")) {
 
 
-            System.out.println("Invalid answer.\n " +
-                    "Are you an admin or a client? ");
+            System.out.println("Invalid answer.\n " + "Are you an admin or a client? ");
 
             userAnswer = scanner.next();
         }
-
-
 
         if (userAnswer.equals("admin")) {
             adminLogIn.adminLogIn();
@@ -39,7 +34,7 @@ public class MainScreen {
             String userAnswer2 = scanner.next();
 
 
-            while (!userAnswer2.equals("sign up") && !userAnswer2.equals("log in")) {
+            while (!userAnswer2.equals("sign") && !userAnswer2.equals("log")) {
 
                 System.out.println("Invalid answer.\n " +
                         "Would you like to sign up or log in? ");
@@ -48,11 +43,11 @@ public class MainScreen {
             }
 
 
-            if (userAnswer2.equals("sign up")) {
+            if (userAnswer2.equals("sign")) {
                 clientSignUp.clientSignUp();
             }
 
-            if (userAnswer2.equals("log in")) {
+            if (userAnswer2.equals("log")) {
                 clientLogIn.clientLogIn();
             }
         }

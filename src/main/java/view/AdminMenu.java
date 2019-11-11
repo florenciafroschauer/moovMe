@@ -85,8 +85,6 @@ public class AdminMenu {
 
         int trip = scanner.nextInt();
 
-
-
         System.out.println("Insert terminal to hand over.");
 
         viewService.getTerminals();
@@ -105,8 +103,6 @@ public class AdminMenu {
          */
 
         System.out.println("Successfully reported.");
-
-
 
         adminMenu();
     }

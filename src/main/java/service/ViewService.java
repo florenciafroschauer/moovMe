@@ -105,6 +105,12 @@ public class ViewService {
         return assetRepository.searchByZone(zone);
     }
 
+    public void getDiscounts() {
+        for (int i = 0; i < discounts.size(); i++) {
+            System.out.println(i + ". Descuento de " + discounts.get(i).getPercent() + "%.");
+        }
+    }
+
     public List<Discount> discountList() {
         return discounts;
     }
