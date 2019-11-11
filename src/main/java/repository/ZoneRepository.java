@@ -10,6 +10,7 @@ public class ZoneRepository extends AbstractRepository<Zone> {
         create(new Zone("Tigre", 15));
     }
 
+
     public static ZoneRepository getInstance() {
         if (zoneRepository != null) {
             return zoneRepository;
