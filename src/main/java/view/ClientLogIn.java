@@ -21,14 +21,12 @@ public class ClientLogIn {
 
         String password = scanner.next();
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         String valid = clientLogIn.clientLogIn(nickname, password);
 
         while (valid.equals("Invalid nickname or password.")) {
-            System.out.println("\033[H\033[2J");
-            System.out.flush();
+
 
             System.out.println("Please enter your nickname: ");
 
@@ -41,8 +39,7 @@ public class ClientLogIn {
             valid = clientLogIn.clientLogIn(nickname2, password2);
         }
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         System.out.println(valid);
 

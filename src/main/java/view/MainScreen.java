@@ -15,12 +15,10 @@ public class MainScreen {
 
         String userAnswer = scanner.next();
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         while (!userAnswer.equals("admin") && !userAnswer.equals("client")) {
-            System.out.println("\033[H\033[2J");
-            System.out.flush();
+
 
             System.out.println("Invalid answer.\n " +
                     "Are you an admin or a client? ");
@@ -28,8 +26,7 @@ public class MainScreen {
             userAnswer = scanner.next();
         }
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+
 
         if (userAnswer.equals("admin")) {
             adminLogIn.adminLogIn();
@@ -41,12 +38,8 @@ public class MainScreen {
 
             String userAnswer2 = scanner.next();
 
-            System.out.println("\033[H\033[2J");
-            System.out.flush();
 
             while (!userAnswer2.equals("sign up") && !userAnswer2.equals("log in")) {
-                System.out.println("\033[H\033[2J");
-                System.out.flush();
 
                 System.out.println("Invalid answer.\n " +
                         "Would you like to sign up or log in? ");
@@ -54,8 +47,6 @@ public class MainScreen {
                 userAnswer2 = scanner.next();
             }
 
-            System.out.println("\033[H\033[2J");
-            System.out.flush();
 
             if (userAnswer2.equals("sign up")) {
                 clientSignUp.clientSignUp();
