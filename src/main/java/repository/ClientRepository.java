@@ -9,7 +9,12 @@ public class ClientRepository extends AbstractRepository<Client> implements User
 
     private static ClientRepository clientRepository;
 
-    private ClientRepository() {}
+    private ClientRepository() {
+        create(new Client("santi", "1234", 1130041854, "santi"));
+        create(new Client("agus", "1234", 1138081835, "agus"));
+        create(new Client("flor", "1234", 1143383000, "flor"));
+        create(new Client("alex", "1234", 1143338542, "alex"));
+    }
 
     @Override
     public User searchByUsername(String username) {
