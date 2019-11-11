@@ -2,7 +2,6 @@ package service;
 
 import model.*;
 import org.junit.Test;
-import repository.AssetRepository;
 import util.AssetType;
 import static org.junit.Assert.*;
 

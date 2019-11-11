@@ -13,14 +13,13 @@ public class AdminLogIn {
     public void adminLogIn() {
 
         System.out.println("Admin log in: \n");
-        System.out.println("Please enter your username: "); // le saque el ln
+        System.out.println("Please enter your username: ");
 
         String username = scanner.next();
 
-        System.out.println("\n\n Please enter your password: ");
+        System.out.println("\n Please enter your password: ");
 
         String password = scanner.next();
-
 
 
         String valid = adminLogIn.AdminLogIn(username, password);
@@ -38,8 +37,6 @@ public class AdminLogIn {
 
             valid = adminLogIn.AdminLogIn(username2, password2);
         }
-
-
 
         System.out.println(valid);
 

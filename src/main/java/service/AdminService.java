@@ -4,7 +4,6 @@ import model.*;
 import repository.*;
 import util.AssetType;
 import util.Fine;
-import util.InProgress;
 
 /**
  * Bloquear clientes.

@@ -40,8 +40,6 @@ public class AdminMenu {
         adminMenu();
     }
 
-        //  BLOQUEAR CLIENTE --------------------------------
-
     public void blockClient() {
         System.out.println("Enter the client you want to block. \n");
 
@@ -52,12 +50,8 @@ public class AdminMenu {
         adminService.blockClient(viewService.clientsList().get(blockClient));
         System.out.println("Successfully blocked.");
 
-
-
         adminMenu();
     }
-
-        // DESBLOQUEAR CLIENTE ----------------------------------
 
     public void unblockClient() {
         System.out.println("Enter the client you want to unblock. \n");
@@ -70,13 +64,8 @@ public class AdminMenu {
 
         System.out.println("Successfully unblocked");
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
         adminMenu();
     }
-
-        //REPORT TRIP ---------------------------------------------
 
     public void reportTrip() {
         System.out.println("Insert which trip to report.");
@@ -91,22 +80,17 @@ public class AdminMenu {
 
         int toHandOver = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
         System.out.println("Insert the amount of the fine.");
 
         int baseFine = scanner.nextInt();
-        /**
-         * adminService.reportTrip(viewService.tripList().get(trip),
-         *                 viewService.terminalsList().get(toHandOver), baseFine);
-         */
+
+         adminService.reportTrip(viewService.tripList().get(trip),
+                 viewService.terminalsList().get(toHandOver), baseFine);
 
         System.out.println("Successfully reported.");
 
         adminMenu();
     }
-        // CREATE TERMINAL -----------------------------------------
 
     public void createTerminal() {
 
@@ -116,9 +100,6 @@ public class AdminMenu {
 
         int terminalZone = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
         System.out.println("Insert name of the new terminal.");
 
         String terminalName = scanner.next();
@@ -127,13 +108,8 @@ public class AdminMenu {
 
         System.out.println("Successfully created.");
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
         return;
     }
-
-            // NEW PURCHASE LOT -----------------------------
 
     public void newPurchaseLot(){
 
@@ -149,17 +125,11 @@ public class AdminMenu {
 
         int asset = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
         System.out.println("Insert in which terminal they will be delivered.");
 
         viewService.getTerminals();
 
         int terminal = scanner.nextInt();
-
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
 
         System.out.println("Insert amount to buy.");
 
@@ -168,14 +138,10 @@ public class AdminMenu {
         adminService.createPurchaseLot(viewService.zonesList().get(zone),
                 viewService.assetsList().get(asset).getType(), viewService.terminalsList().get(terminal), lot);
 
-
-
         adminMenu();
     }
 
-    // crear descuentos
     public void createDiscount() {
-        //AssetType assetType, Integer minScore, Zone zone, int percent
 
         System.out.println("Insert an asset type.");
 
@@ -183,15 +149,9 @@ public class AdminMenu {
 
         int asset = scanner.nextInt();
 
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-
         System.out.println("Enter minimum score required. ");
 
         int minScore = scanner.nextInt();
-
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
 
         System.out.println("Insert zone. \n");
 
@@ -199,16 +159,12 @@ public class AdminMenu {
 
         int zone = scanner.nextInt();
 
-
-
         System.out.println("Enter discount percentage. ");
 
         int percent = scanner.nextInt();
 
         adminService.createDiscount(viewService.assetsList().get(asset).getType(), minScore,
                 viewService.zonesList().get(zone), percent);
-
-
 
         adminMenu();
     }

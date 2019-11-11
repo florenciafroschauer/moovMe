@@ -13,7 +13,6 @@ public class ClientMenu {
     private ViewService viewService = new ViewService();
     private Scanner scanner = new Scanner(System.in);
     private ClientSignUp clientSignUp = new ClientSignUp();
-    private DiscountService discountService = new DiscountService();
     private ScoringService scoringService;
     private Trip trip;
 
@@ -74,7 +73,6 @@ public class ClientMenu {
             Terminal terminal1 = viewService.terminalsInZoneList(zone1).get(terminal);
             trip.setTerminalToHandOver(terminal1);
         }
-
 
         System.out.println("Please, choose hour to return the asset");
         int hour = scanner.nextInt();

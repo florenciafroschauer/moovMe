@@ -17,11 +17,9 @@ public class ClientLogIn {
 
         String nickname = scanner.next();
 
-        System.out.println("\n\n Please enter your password: ");
+        System.out.println("\n Please enter your password: ");
 
         String password = scanner.next();
-
-
 
         String valid = clientLogIn.clientLogIn(nickname, password);
 
@@ -38,8 +36,6 @@ public class ClientLogIn {
 
             valid = clientLogIn.clientLogIn(nickname2, password2);
         }
-
-
 
         System.out.println(valid);
 

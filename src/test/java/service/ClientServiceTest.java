@@ -3,12 +3,7 @@ package service;
 import model.*;
 import org.junit.Test;
 import util.AssetType;
-import util.KeyGenerator;
 import util.Voucher;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class ClientServiceTest {
@@ -52,7 +47,7 @@ public class ClientServiceTest {
     }
 
     @Test
-    public void buyDiscounts(){//COMPRO EL DESCUENTO???
+    public void buyDiscounts(){
         clientService.buyDiscount(discount);
         assertTrue(client.getDiscounts().contains(discount));
     }
@@ -68,6 +63,4 @@ public class ClientServiceTest {
         clientService.useVoucher(voucher);
         assertEquals(false, client.getVouchers().contains(voucher));
     }
-
-
 }
