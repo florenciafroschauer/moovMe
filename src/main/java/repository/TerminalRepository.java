@@ -9,7 +9,9 @@ public class TerminalRepository extends AbstractRepository<Terminal> {
 
     private static TerminalRepository terminalRepository;
 
-    private TerminalRepository() {}
+    private TerminalRepository() {
+        create(new Terminal(new Zone("Pilar", 5), "Terminal en Pilar"));
+    }
 
     public List<Terminal> searchByZone(Zone zone) {
         List<Terminal> terminals = findAll();

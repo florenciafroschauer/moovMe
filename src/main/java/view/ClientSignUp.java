@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class ClientSignUp {
     private Scanner scanner = new Scanner(System.in);
     private SignUpService signUpService = new SignUpService();
-    private ClientLogIn clientLogIn = new ClientLogIn();
     private Client client;
 
     public void clientSignUp() {
@@ -82,28 +81,6 @@ public class ClientSignUp {
         System.out.flush();
 
         client = new Client(username, password, phoneNumber, nickname);
-
-        System.out.println("Would you like to log in? ");
-        String clientAnswer = scanner.next();
-
-        while (!clientAnswer.equals("yes") && !clientAnswer.equals("no")) {
-            System.out.println("\033[H\033[2J");
-            System.out.flush();
-
-            System.out.println("Would you like to log in? ");
-
-            clientAnswer = scanner.next();
-        }
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
-
-        if (clientAnswer.equals("yes")) {
-            clientLogIn.clientLogIn();
-        }
-
-        if (clientAnswer.equals("no")) {
-            System.out.println("Thanks for using MoovMe");
-        }
     }
 
     protected Client getClient() {

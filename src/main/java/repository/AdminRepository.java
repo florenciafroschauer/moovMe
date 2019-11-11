@@ -10,6 +10,7 @@ public class AdminRepository extends AbstractRepository<Admin> implements UserRe
     private static AdminRepository adminRepository;
 
     private AdminRepository() {
+        create(new Admin("admin", "pass"));
     }
 
     @Override

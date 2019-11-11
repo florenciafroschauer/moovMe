@@ -62,5 +62,7 @@ public class MainScreen {
                 clientLogIn.clientLogIn();
             }
         }
+
+        showScreen();
     }
 }

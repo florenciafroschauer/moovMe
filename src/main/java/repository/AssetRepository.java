@@ -1,6 +1,8 @@
 package repository;
 
 import model.Asset;
+import model.PurchaseLot;
+import model.Terminal;
 import model.Zone;
 import util.AssetType;
 import java.util.ArrayList;
@@ -10,7 +12,12 @@ public class AssetRepository extends AbstractRepository<Asset> {
 
     private static AssetRepository assetRepository;
 
-    private AssetRepository() {}
+    private AssetRepository() {
+        final Zone zone = new Zone("CABA", 10);
+        final AssetType assetType = new AssetType("Bici", 10, 15);
+        create(new Asset(zone, assetType , new Terminal(zone, "Terminal en CABA"),
+                new PurchaseLot(zone, assetType, 15 )));
+    }
 
     public Asset searchByAssetType(AssetType assetType) {
         List<Asset> assets = findAll();

@@ -13,35 +13,35 @@ public class AdminLogIn {
     public void adminLogIn() {
 
         System.out.println("Admin log in: \n");
-        System.out.print("Please enter your username: "); // le saque el ln
+        System.out.println("Please enter your username: "); // le saque el ln
 
-        String username = scanner.nextLine();
+        String username = scanner.next();
 
-        System.out.print("\n\n Please enter your password: ");
+        System.out.println("\n\n Please enter your password: ");
 
-        String password = scanner.nextLine();
+        String password = scanner.next();
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         String valid = adminLogIn.AdminLogIn(username, password);
 
         while (valid.equals("Invalid username or password.")) {
-            System.out.print("\033[H\033[2J");
+            System.out.println("\033[H\033[2J");
             System.out.flush();
 
-            System.out.print("Please enter your username: "); // le saque el ln
+            System.out.println("Please enter your username: ");
 
-            String username2 = scanner.nextLine();
+            String username2 = scanner.next();
 
-            System.out.print("Please enter your password: ");
+            System.out.println("Please enter your password: ");
 
-            String password2 = scanner.nextLine();
+            String password2 = scanner.next();
 
             valid = adminLogIn.AdminLogIn(username2, password2);
         }
 
-        System.out.print("\033[H\033[2J");
+        System.out.println("\033[H\033[2J");
         System.out.flush();
 
         System.out.println(valid);
